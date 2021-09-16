@@ -12,8 +12,35 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | GodderE2D</title>
         <link rel="icon" href="/logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
         <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
+
+        <link rel="icon" href="/logo.png" />
+        <meta property="og:title" content="Home | GodderE2D" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/logo.png" />
+        {/* TODO: Replace custom status with actual custom status once complete */}
+        <meta property="og:description" content={`
+        Hey there, Godder here.
+        I'm just a not-so-ordinary human being on the internet.
+        Nice to meet you!
+
+        Custom Status:
+        “Someday this will actually be something, but that day is not today.”
+        `} />
+        <meta itemProp="name" content="Home | GodderE2D" />
+        {/* TODO: Replace custom status with actual custom status once complete */}
+        <meta itemProp="description" content={`
+        Hey there, Godder here.
+        I'm just a not-so-ordinary human being on the internet.
+        Nice to meet you!
+
+        Custom Status:
+        “Someday this will actually be something, but that day is not today.”
+        `} />
+        <meta itemProp="thumbnailUrl" content="/logo.png" />
+        <meta itemProp="image" content="/logo.png" />
+        <meta itemProp="imageUrl" content="/logo.png" />
       </Head>
 
       <Navbar />

@@ -30,8 +30,19 @@ const NotFound: NextPage = () => {
       <Head>
         <title>404 | GodderE2D</title>
         <link rel="icon" href="/logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
         <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
+
+        <meta property="og:title" content="404 | GodderE2D" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/logo.png" />
+        <meta property="theme-color" content="#0ca48f" />
+        <meta property="og:description" content={text} />
+        <meta itemProp="name" content="404 | GodderE2D" />
+        <meta itemProp="description" content={text} />
+        <meta itemProp="thumbnailUrl" content="/logo.png" />
+        <meta itemProp="image" content="/logo.png" />
+        <meta itemProp="imageUrl" content="/logo.png" />
       </Head>
 
       <Navbar />
