@@ -15,10 +15,10 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
         <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
-        <link rel="icon" href="/logo.png" />
         <meta property="og:title" content="Home | GodderE2D" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/logo.png" />
+        <meta property="theme-color" content="0ca48f" />
         {/* TODO: Replace custom status with actual custom status once complete */}
         <meta property="og:description" content={`
         Hey there, Godder here.
