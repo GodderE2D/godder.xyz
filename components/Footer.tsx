@@ -30,15 +30,17 @@ const Footer = () => {
           </div>
 
           <div className="link link-hover">
-            <Link href="/">Resources</Link>
+            <Link href="/resources">Resources</Link>
           </div>
 
           <div className="link link-hover">
-            <Link href="/">Bio</Link>
+            <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+              Bio
+            </a>
           </div>
 
           <div className="link link-hover">
-            <Link href="/">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </div>
         </div>
         <div>

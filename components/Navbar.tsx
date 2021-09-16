@@ -9,26 +9,30 @@ const Home = () => {
     <div>
       <div className="flex-1 hidden lg:block px-2 mx-2">
         <div className="items-stretch hidden lg:flex">
-          <span className="btn btn-ghost rounded-btn">
-            <Link href="/">
+          <Link href="/" passHref>
+            <span className="btn btn-ghost rounded-btn">
               Home
-            </Link>
-          </span>
-          <span className="btn btn-ghost rounded-btn">
-            <Link href="/resources">
+            </span>
+          </Link>
+
+          <Link href="/resources" passHref>
+            <span className="btn btn-ghost rounded-btn">
               Resources
-            </Link>
-          </span>
-          <span className="btn btn-ghost rounded-btn">
-            <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+            </span>
+          </Link>
+
+          <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+            <span className="btn btn-ghost rounded-btn">
               Bio
-            </a>
-          </span>
-          <span className="btn btn-ghost rounded-btn">
-            <Link href="/blog">
+            </span>
+          </a>
+
+          <Link href="/blog" passHref>
+            <span className="btn btn-ghost rounded-btn">
               Blog
-            </Link>
-          </span>
+            </span>
+          </Link>
+
           <div className="dropdown dropdown-hover">
             <div tabIndex={0} className="btn btn-ghost rounded-btn">Social Platforms</div>
             <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 text-base-content">
@@ -103,26 +107,29 @@ const Home = () => {
     <div className="lg:hidden min-h-screen">
       <div className="flex-1 px-2 mx-2">
         <div className="items-stretch">
-          <div className="btn btn-ghost rounded-btn block">
-            <Link href="/">
+          <Link href="/" passHref>
+            <div className="btn btn-ghost rounded-btn">
               Home
-            </Link>
-          </div>
-          <div className="btn btn-ghost rounded-btn block">
-            <Link href="/resources">
+            </div>
+          </Link>
+
+          <Link href="/resources" passHref>
+            <div className="btn btn-ghost rounded-btn">
               Resources
-            </Link>
-          </div>
-          <div className="btn btn-ghost rounded-btn block">
-            <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+            </div>
+          </Link>
+
+          <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+            <div className="btn btn-ghost rounded-btn">
               Bio
-            </a>
-          </div>
-          <div className="btn btn-ghost rounded-btn block">
-            <Link href="/blog">
+            </div>
+          </a>
+
+          <Link href="/blog" passHref>
+            <div className="btn btn-ghost rounded-btn">
               Blog
-            </Link>
-          </div>
+            </div>
+          </Link>
 
           <div className="dropdown dropdown-hover block">
             <div tabIndex={0} className="btn btn-ghost rounded-btn block">Social Platforms</div>
