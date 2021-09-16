@@ -31,6 +31,7 @@ const NotFound: NextPage = () => {
         <title>404 | GodderE2D</title>
         <link rel="icon" href="/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
       </Head>
 
       <Navbar />
