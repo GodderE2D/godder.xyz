@@ -61,14 +61,15 @@ const Home: NextPage = () => {
 
             <div className="h-8" />
 
-            <div className="btn btn-primary btn-wide">
-              <Link href="/resources" passHref>
-                <span>
-                  <FileTrayOutline cssClasses="inline mr-2" color="#f9fafb" />
-                  <span className="inline">Resources</span>
-                </span>
-              </Link>
-            </div>
+            <Link href="/resources" passHref>
+              <div className="btn btn-primary btn-wide">
+
+                  <span>
+                    <FileTrayOutline cssClasses="inline mr-2" color="#f9fafb" />
+                    <span className="inline">Resources</span>
+                  </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
