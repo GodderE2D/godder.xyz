@@ -104,7 +104,7 @@ const Home = () => {
   );
 
   const MobileContent = () => (
-    <div className="lg:hidden min-h-screen">
+    <div className="lg:hidden">
       <div className="flex-1 px-2 mx-2">
         <div className="items-stretch">
           <Link href="/" passHref>
