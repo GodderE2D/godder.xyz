@@ -36,7 +36,7 @@ const NotFound: NextPage = () => {
         <meta property="og:title" content="404 | GodderE2D" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/logo.png" />
-        <meta name="theme-color" content="#0ca48f" />
+        <meta property="theme-color" content="40bf6c" />
         <meta property="og:description" content={text} />
         <meta itemProp="name" content="404 | GodderE2D" />
         <meta itemProp="description" content={text} />

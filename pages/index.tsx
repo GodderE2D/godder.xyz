@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         <meta property="og:title" content="Home | GodderE2D" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/logo.png" />
-        <meta name="theme-color" content="#0ca48f" />
+        <meta name="theme-color" content="#40bf6c" />
         {/* TODO: Replace custom status with actual custom status once complete */}
         <meta property="og:description" content={`
         Hey there, Godder here.

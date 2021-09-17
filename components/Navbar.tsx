@@ -108,31 +108,31 @@ const Home = () => {
       <div className="flex-1 px-2 mx-2">
         <div className="items-stretch">
           <Link href="/" passHref>
-            <div className="btn btn-ghost rounded-btn">
+            <div className="btn btn-ghost rounded-btn w-full">
               Home
             </div>
           </Link>
 
           <Link href="/resources" passHref>
-            <div className="btn btn-ghost rounded-btn">
+            <div className="btn btn-ghost rounded-btn w-full">
               Resources
             </div>
           </Link>
 
           <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
-            <div className="btn btn-ghost rounded-btn">
+            <div className="btn btn-ghost rounded-btn w-full">
               Bio
             </div>
           </a>
 
           <Link href="/blog" passHref>
-            <div className="btn btn-ghost rounded-btn">
+            <div className="btn btn-ghost rounded-btn w-full">
               Blog
             </div>
           </Link>
 
           <div className="dropdown dropdown-hover block">
-            <div tabIndex={0} className="btn btn-ghost rounded-btn block">Social Platforms</div>
+            <div tabIndex={0} className="btn btn-ghost rounded-btn w-full block">Social Platforms</div>
             <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box text-base-content justify-center text-center grid grid-cols-2 w-full m-auto">
               <li>
                 <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer" className="text-center content-center">
