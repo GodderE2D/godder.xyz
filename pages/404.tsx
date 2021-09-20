@@ -70,11 +70,11 @@ const NotFound: NextPage = () => {
 
             <div className="h-14 block" />
 
-            <div className="btn btn-primary btn-wide">
-              <Link href="/">
+            <Link href="/" passHref>
+              <div className="btn btn-primary btn-wide">
                 Take me back home
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
