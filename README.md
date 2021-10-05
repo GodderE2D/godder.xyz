@@ -1,12 +1,15 @@
-# [Godder.ga](https://new.godder.ga/)
-Godder.ga - Godder's new website
+# [Godder.xyz](https://www.godder.xyz/)
+Godder.xyz - Godder's new website
 
-## Technologies Used
-* DaisyUI
-* Next.js
-* React
-* Node.js
-* Netlify
+## Background
+* Frontend
+  * React
+  * Next.js
+  * PostCSS
+  * TailwindCSS
+  * DaisyUI
+* Backend
+  * Supabase
 
 ## Contributing
 
