@@ -70,19 +70,19 @@ const Resources: NextPage = () => {
 
             <ul>
               <li>
-                <a href="mailto:main@godder.ga">main@godder.ga</a>
+                <a href="mailto:main@godder.xyz">main@godder.xyz</a>
                 : Used for all contact with an online relationship, such as social platforms
               </li>
               <li>
-                <a href="mailto:irl@godder.ga">irl@godder.ga</a>
+                <a href="mailto:irl@godder.xyz">irl@godder.xyz</a>
                 : Used for contact if I met you in real life
               </li>
               <li>
-                <a href="mailto:support@godder.ga">support@godder.ga</a>
+                <a href="mailto:support@godder.xyz">support@godder.xyz</a>
                 : Used for online support if a social platform is not the best for support
               </li>
               <li>
-                <a href="mailto:ama@godder.ga">ama@godder.ga</a>
+                <a href="mailto:ama@godder.xyz">ama@godder.xyz</a>
                 : Ask me anything! I&apos;ll reply to you with an answer (if appropriate)
               </li>
               <li>
