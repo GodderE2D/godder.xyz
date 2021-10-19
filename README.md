@@ -17,7 +17,7 @@ Godder.xyz - Godder's new website
 
 ### Pull requests
 
-Godder.ga is currently not accepting pull requests.
+Godder.xyz is currently not accepting pull requests.
 
 If you open a pull request, it will likely be looked at and closed.
 

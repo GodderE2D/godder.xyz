@@ -356,7 +356,7 @@ const Home = () => {
                 <div className="h-2" />
                 <small>
                   To withdraw consent, please{" "}
-                  <a className="link" href="mailto:main@godder.ga">
+                  <a className="link" href="mailto:main@godder.xyz">
                     email me
                   </a>
                   .
