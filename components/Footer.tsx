@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { InformationCircleOutline } from 'react-ionicons';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { InformationCircleOutline } from "react-ionicons";
 
 const Footer = () => {
   return (
@@ -13,14 +13,10 @@ const Footer = () => {
           <Image width="50" height="50" src="/logo.png" alt="GodderE2D Logo" />
 
           <h2 className="text-2xl">
-            <strong>
-              GodderE2D
-            </strong>
+            <strong>GodderE2D</strong>
           </h2>
 
-          <p>
-            A very mysterious person...
-          </p>
+          <p>A very mysterious person...</p>
         </div>
         <div>
           <span className="footer-title">Pages</span>
@@ -34,7 +30,11 @@ const Footer = () => {
           </div>
 
           <div className="link link-hover">
-            <a href="https://dsc.bio/godder" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://dsc.bio/godder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Bio
             </a>
           </div>
@@ -52,7 +52,8 @@ const Footer = () => {
             </span>
 
             <span className="mx-4">
-              Someday this will actually be something, but that day is not today.
+              Someday this will actually be something, but that day is not
+              today.
             </span>
 
             <span className="text-5xl opacity-60">
@@ -63,14 +64,18 @@ const Footer = () => {
           <div className="h-1.5" />
 
           <div className="opacity-60">
-            <em className="inline">
-              — GodderE2D
-            </em>
+            <em className="inline">— GodderE2D</em>
 
-            <div data-tip="
+            <div
+              data-tip="
                 You found my custom status! This changes periodically, and take everything I say with a grain of salt 🧂
-              " className="tooltip tooltip-info tooltip-right">
-              <InformationCircleOutline cssClasses="inline ml-2" color="#2194f3" />
+              "
+              className="tooltip tooltip-info tooltip-right"
+            >
+              <InformationCircleOutline
+                cssClasses="inline ml-2"
+                color="#2194f3"
+              />
             </div>
           </div>
         </div>

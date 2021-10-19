@@ -1,13 +1,15 @@
 {
   "name": "godder.ga",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier .",
+    "prettier": "prettier --check ."
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -26,6 +28,7 @@
     "@types/react": "17.0.20",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "prettier": "^2.4.1",
     "typescript": "4.4.2"
   }
 }

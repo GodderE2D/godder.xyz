@@ -1,10 +1,7 @@
 module.exports = {
-  mode: 'jit',
+  mode: "jit",
 
-   purge: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
-    ],
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
 
   darkMode: false, // or 'media' or 'class'
 
@@ -24,14 +21,9 @@ module.exports = {
     extend: {},
   },
 
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('daisyui'),
-  ],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 
   daisyui: {
-    themes: [
-      'emerald',
-    ]
+    themes: ["emerald"],
   },
 };
