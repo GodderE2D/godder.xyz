@@ -1,7 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { InformationCircleOutline } from "react-ionicons";
+import {
+  ChatbubbleEllipsesOutline,
+  EyeOutline,
+  HeartOutline,
+} from "react-ionicons";
 
 const Footer = () => {
   return (
@@ -10,13 +14,27 @@ const Footer = () => {
 
       <footer className="p-10 footer bg-base-200 text-base-content">
         <div>
-          <Image width="50" height="50" src="/logo.png" alt="GodderE2D Logo" />
+          <Image
+            width="50"
+            height="50"
+            src="/logo-rounded.png"
+            alt="GodderE2D Logo"
+          />
 
           <h2 className="text-2xl">
             <strong>GodderE2D</strong>
           </h2>
 
           <p>A very mysterious person...</p>
+
+          <a
+            href="https://github.com/GodderE2D/godder.xyz"
+            className="footer-github-link"
+            title="Go to Website GitHub"
+            aria-label="Go to Website GitHub"
+            target="_blank"
+            rel="noreferrer"
+          ></a>
         </div>
         <div>
           <span className="footer-title">Pages</span>
@@ -44,39 +62,60 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <span className="footer-title">Custom Status</span>
+          <span className="footer-title">Latest Blog</span>
 
-          <div>
-            <span className="text-5xl opacity-60">
-              <strong>“</strong>
-            </span>
+          <div className="max-w-4xl" key={"Testing"}>
+            <Link href={`/blog/testing`} passHref>
+              <div className="grid card bg-base-300 rounded-box cursor-pointer">
+                <div className="mx-6 my-6">
+                  <div key={"Tag #1"} className="badge badge-success mr-2">
+                    Tag #1
+                  </div>
+                  <div key={"Tag #2"} className="badge badge-success mr-2">
+                    Tag #2
+                  </div>
+                  <div key={"Tag #3"} className="badge badge-success mr-2">
+                    Tag #3
+                  </div>
 
-            <span className="mx-4">
-              Someday this will actually be something, but that day is not
-              today.
-            </span>
+                  <div className="h-2" />
 
-            <span className="text-5xl opacity-60">
-              <strong>”</strong>
-            </span>
-          </div>
+                  <h3 className="text-2xl">
+                    <strong>Testing</strong>
+                  </h3>
 
-          <div className="h-1.5" />
+                  <p>
+                    A testing blog but not really. Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. Debitis, officia possimus
+                    asperiores, ex ratione nisi quasi pariatur veniam rem
+                    repellat qui quas vitae. Harum facilis ipsum libero sed
+                    tempora nam! Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Unde error autem repudiandae nihil
+                    possimus cupiditate, eum saepe? Repudiandae repellat
+                    recusandae, consectetur, dolore obcaecati officiis sunt
+                    facere, iure impedit ratione nemo!
+                  </p>
 
-          <div className="opacity-60">
-            <em className="inline">— GodderE2D</em>
+                  <small className="opacity-60">
+                    Created on Monday, November 22, 2021 • Updated on Monday,
+                    November 22, 2021
+                  </small>
 
-            <div
-              data-tip="
-                You found my custom status! This changes periodically, and take everything I say with a grain of salt 🧂
-              "
-              className="tooltip tooltip-info tooltip-right"
-            >
-              <InformationCircleOutline
-                cssClasses="inline ml-2"
-                color="#2194f3"
-              />
-            </div>
+                  <div>
+                    <span className="mr-2">
+                      <EyeOutline cssClasses="inline mr-1" />0
+                    </span>
+                    <span className="mx-2">
+                      <HeartOutline cssClasses="inline mr-1" />0
+                    </span>
+                    <span className="ml-2">
+                      <ChatbubbleEllipsesOutline cssClasses="inline mr-1" />0
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+            <div className="h-4" />
           </div>
         </div>
       </footer>

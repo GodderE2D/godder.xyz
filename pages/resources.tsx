@@ -8,37 +8,38 @@ const Resources: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Resources | GodderE2D</title>
-        <link rel="icon" href="/logo.png" />
+        <title>Resources · GodderE2D</title>
+        <link rel="icon" href="/logo-rounded.png" />
+        <link type="application/json+oembed" href="/json-oembed.json"></link>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
         <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
-        <meta property="og:title" content="Resources | GodderE2D" />
+        <meta property="og:title" content="Resources · GodderE2D" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image" content="/logo-rounded.png" />
         <meta name="theme-color" content="#40bf6c" />
         <meta
           property="og:description"
           content="See GodderE2D's resources listed here, including email addresses, online projects, social platforms, recommendations, and more."
         />
-        <meta itemProp="name" content="Resources | GodderE2D" />
+        <meta itemProp="name" content="Resources · GodderE2D" />
         <meta
           itemProp="description"
           content="See GodderE2D's resources listed here, including email addresses, online projects, social platforms, recommendations, and more."
         />
-        <meta itemProp="thumbnailUrl" content="/logo.png" />
-        <meta itemProp="image" content="/logo.png" />
-        <meta itemProp="imageUrl" content="/logo.png" />
+        <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
+        <meta itemProp="image" content="/logo-rounded.png" />
+        <meta itemProp="imageUrl" content="/logo-rounded.png" />
       </Head>
 
       <Navbar />
 
       <div>
         <div className="flex-col lg:mx-32 md:mx-16 mx-8 flex lg:flex-row">
-          <div className="prose" style={{ maxWidth: "max-content" }}>
+          <div className="prose max-w-max">
             <h1>Resources</h1>
 
             <h2>Advertisement</h2>
@@ -65,7 +66,7 @@ const Resources: NextPage = () => {
               However, Wolvesville Utopium is fully simulated on Discord! You
               can play with your friends at anytime, anywhere soon&trade;!
               <br />
-              It&apos;s currently dead right now, so if you could check it out,
+              It{"'"}s currently dead right now, so if you could check it out,
               it would mean a lot to me, and the developers, staff, and members
               there! Thanks a lot 😊
             </p>
@@ -114,7 +115,7 @@ const Resources: NextPage = () => {
               </li>
               <li>
                 <a href="mailto:ama@godder.xyz">ama@godder.xyz</a>: Ask me
-                anything! I&apos;ll reply to you with an answer (if appropriate)
+                anything! I{"'"}ll reply to you with an answer (if appropriate)
               </li>
               <li>
                 <a href="mailto:godderseesyou@gmail.com">
@@ -199,7 +200,7 @@ const Resources: NextPage = () => {
 
             <h2>Social Platforms</h2>
 
-            <p>I&apos;m on a lot of these. I just realised that...</p>
+            <p>I{"'"}m on a lot of these. I just realised that...</p>
 
             <ul>
               <li>
@@ -334,7 +335,7 @@ const Resources: NextPage = () => {
 
                 <span>
                   I am not affiliated or sponsored by any of these services.
-                  This is purely recommendations and you do not need to use
+                  These are purely recommendations and you do not need to use
                   them.
                 </span>
               </div>
@@ -349,7 +350,7 @@ const Resources: NextPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Y0ken&apos;s Domain
+                  Y0ken{"'"}s Domain
                 </a>
                 : Best Discord server for great games and guides, including
                 Discord help*
@@ -368,7 +369,7 @@ const Resources: NextPage = () => {
             </ul>
 
             <small className="opacity-60">
-              * I had been a staff member in Y0ken&apos;s Domain, therefore my
+              * I had been a staff member in Y0ken{"'"}s Domain, therefore my
               review may be slightly biased.
             </small>
 

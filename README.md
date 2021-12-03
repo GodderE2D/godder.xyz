@@ -2,25 +2,15 @@
 
 Godder.xyz - Godder's new website
 
-## Background
+## Technologies Used
 
-- Frontend
-  - React
-  - Next.js
-  - PostCSS
-  - TailwindCSS
-  - DaisyUI
-- Backend
-  - Supabase (coming soon)
+- React
+- Next.js
+- PostCSS
+- TailwindCSS
+- DaisyUI
+- Supabase
 
 ## Contributing
 
-### Pull requests
-
-Godder.xyz is currently not accepting pull requests.
-
-If you open a pull request, it will likely be looked at and closed.
-
-### Issues
-
-You are welcome to open an issue if you see a bug, typo, or anything else.
+You are welcome to open an issue or pull request if you see a bug, typo, or anything else. All issues/PRs will be reviewed within 7 days.

@@ -1,104 +1,77 @@
 import Link from "next/link";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { InformationCircleOutline, FileTrayOutline } from "react-ionicons";
+import { FileTrayOutline } from "react-ionicons";
 
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Home | GodderE2D</title>
-        <link rel="icon" href="/logo.png" />
+        <title>GodderE2D</title>
+        <link rel="icon" href="/logo-rounded.png" />
+        <link type="application/json+oembed" href="/json-oembed.json"></link>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
         <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
-        <meta property="og:title" content="Home | GodderE2D" />
+        <meta property="og:title" content="Home · GodderE2D" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image" content="/logo-rounded.png" />
         <meta name="theme-color" content="#40bf6c" />
-        {/* TODO: Replace custom status with actual custom status once complete */}
         <meta
           property="og:description"
           content={`
-        Hey there, Godder here.
-        I'm just a not-so-ordinary human being on the internet.
-        Nice to meet you!
+          I'm just a not-so-ordinary human being on the internet.=
+          Nice to meet you!
 
-        Custom Status:
-        “Someday this will actually be something, but that day is not today.”
+          Based in Australia, I'm a full-stack developer (not really). I
+          usually spend my free time playing video games, on Discord, or
+          casually on the internet on one of my social platforms. You can
+          find my projects on my Resources page, which is linked below.
         `}
         />
-        <meta itemProp="name" content="Home | GodderE2D" />
-        {/* TODO: Replace custom status with actual custom status once complete */}
+        <meta itemProp="name" content="Home · GodderE2D" />
         <meta
           itemProp="description"
           content={`
-        Hey there, Godder here.
-        I'm just a not-so-ordinary human being on the internet.
-        Nice to meet you!
+            I'm just a not-so-ordinary human being on the internet.=
+            Nice to meet you!
 
-        Custom Status:
-        “Someday this will actually be something, but that day is not today.”
+            Based in Australia, I'm a full-stack developer (not really). I
+            usually spend my free time playing video games, on Discord, or
+            casually on the internet on one of my social platforms. You can
+            find my projects on my Resources page, which is linked below.
         `}
         />
-        <meta itemProp="thumbnailUrl" content="/logo.png" />
-        <meta itemProp="image" content="/logo.png" />
-        <meta itemProp="imageUrl" content="/logo.png" />
+        <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
+        <meta itemProp="image" content="/logo-rounded.png" />
+        <meta itemProp="imageUrl" content="/logo-rounded.png" />
       </Head>
 
       <Navbar />
 
-      <div className="h-16" />
-
       <div>
         <div className="flex-col justify-center flex items-center lg:flex-row">
-          <div className="text-center lg:text-left">
-            <h1 className="mb-5 text-5xl font-bold">Hey there, Godder here.</h1>
+          <div className="text-left mx-4">
+            <h1 className="mb-5 text-5xl font-extrabold">
+              Hey there, Godder here.
+            </h1>
 
-            <p className="mb-5">
-              I&apos;m just a not-so-ordinary human being on the internet.
+            <p className="mb-5 max-w-xl">
+              I{"'"}m just a not-so-ordinary human being on the internet.
               <br />
               Nice to meet you!
+              <br />
+              <br />
+              Based in Australia, I{"'"}m a full-stack developer (not really). I
+              usually spend my free time playing video games, on Discord, or
+              casually on the internet on one of my social platforms. You can
+              find my projects on my Resources page, which is linked below.
             </p>
-
-            <div>
-              <span className="text-5xl opacity-60">
-                <strong>“</strong>
-              </span>
-
-              <span className="mx-4">
-                Someday this will actually be something, but that day is not
-                today.
-              </span>
-
-              <span className="text-5xl opacity-60">
-                <strong>”</strong>
-              </span>
-            </div>
-
-            <div className="h-5" />
-
-            <div className="opacity-60">
-              <em className="inline">— GodderE2D</em>
-
-              <div
-                data-tip="
-                You found my custom status! This changes periodically, and take everything I say with a grain of salt 🧂
-              "
-                className="tooltip tooltip-info tooltip-right"
-              >
-                <InformationCircleOutline
-                  cssClasses="inline ml-2"
-                  color="#2194f3"
-                />
-              </div>
-            </div>
 
             <div className="h-8" />
 
