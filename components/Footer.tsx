@@ -62,9 +62,9 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <span className="footer-title">Latest Blog</span>
+          <span className="footer-title">Latest Blog (Coming Soon)</span>
 
-          <div className="max-w-4xl" key={"Testing"}>
+          <div className="max-w-4xl hidden" key={"Testing"}>
             <Link href={`/blog/testing`} passHref>
               <div className="grid card bg-base-300 rounded-box cursor-pointer">
                 <div className="mx-6 my-6">
