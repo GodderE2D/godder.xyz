@@ -23,30 +23,16 @@ const Home: NextPage = () => {
         <meta name="theme-color" content="#40bf6c" />
         <meta
           property="og:description"
-          content="
-          I'm just a not-so-ordinary human being on the internet.
-          Nice to meet you!
-
-          From Australia, I'm just a random person you meet here and
-          there on the internet. I'm also developer but I kind of suck at
-          that. I usually spend my free time playing video games, on
-          Discord, or casually on the internet on one of my social
-          platforms. You can find my projects on my Resources page, which is
-          linked below."
+          content={
+            "I'm just a not-so-ordinary human being on the internet.\nNice to meet you!\n\nFrom Australia, I'm just a random person you meet here and there on the internet. I'm also developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually on the internet on one of my social platforms. You can find my projects on my Resources page, which is linked below."
+          }
         />
         <meta itemProp="name" content="Home · GodderE2D" />
         <meta
           itemProp="description"
-          content="
-          I'm just a not-so-ordinary human being on the internet.
-          Nice to meet you!
-
-          From Australia, I'm just a random person you meet here and
-          there on the internet. I'm also developer but I kind of suck at
-          that. I usually spend my free time playing video games, on
-          Discord, or casually on the internet on one of my social
-          platforms. You can find my projects on my Resources page, which is
-          linked below."
+          content={
+            "I'm just a not-so-ordinary human being on the internet.\nNice to meet you!\n\nFrom Australia, I'm just a random person you meet here and there on the internet. I'm also developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually on the internet on one of my social platforms. You can find my projects on my Resources page, which is linked below."
+          }
         />
         <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
         <meta itemProp="image" content="/logo-rounded.png" />
