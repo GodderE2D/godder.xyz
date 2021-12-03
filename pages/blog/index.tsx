@@ -213,7 +213,7 @@ const Blog: NextPage = () => {
       <Head>
         <title>Blog · GodderE2D</title>
         <link rel="icon" href="/logo-rounded.png" />
-        <link type="application/json+oembed" href="/json-oembed.json"></link>
+
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
