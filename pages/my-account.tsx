@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import toast from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
 
 const MyAccount: NextPage = () => {
@@ -23,35 +24,17 @@ const MyAccount: NextPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
-        <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
       </Head>
 
       <Navbar />
 
-      <div className="lg:mx-96 md:mx-64 mx-12">
+      <div className="lg:mx-36 md:mx-12 mx-4">
         <h1 className="mb-5 text-5xl font-extrabold">My Account</h1>
         <div className="h-8" />
 
         {!supabase.auth.user()?.id ? (
           <div>
-            <div className="alert alert-error">
-              <div className="flex-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6 mx-2 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
-                  ></path>
-                </svg>
-                <label>You must be logged in to see account details.</label>
-              </div>
-            </div>
+            <p>You must be logged in to see account details.</p>
           </div>
         ) : (
           <div>
@@ -105,7 +88,9 @@ const MyAccount: NextPage = () => {
 
             <button
               className="btn btn-error modal-button"
-              onClick={() => setModalOpen(true)}
+              onClick={() => {
+                setModalOpen(true);
+              }}
             >
               Delete Account
             </button>
@@ -122,16 +107,18 @@ const MyAccount: NextPage = () => {
 
                   <div className="h-3" />
 
-                  <label className="cursor-pointer label">
-                    <input
-                      type="checkbox"
-                      className="checkbox"
-                      onClick={() => setCheckboxTicked(!isCheckboxTicked)}
-                    />
-                    <span className="label-text">
-                      I agree to the consequences of deleting my account.
-                    </span>
-                  </label>
+                  <div className="form-control">
+                    <label className="cursor-pointer label">
+                      <input
+                        type="checkbox"
+                        className="checkbox"
+                        onClick={() => setCheckboxTicked(!isCheckboxTicked)}
+                      />
+                      <span className="label-text">
+                        I agree to the consequences of deleting my account.
+                      </span>
+                    </label>
+                  </div>
 
                   <div className="h-3" />
 
@@ -139,12 +126,25 @@ const MyAccount: NextPage = () => {
                     <button
                       className="btn btn-error mr-1.5"
                       disabled={!isCheckboxTicked}
+                      onClick={() => {
+                        // Shhh, don't tell anyone.
+                        toast.error(
+                          <>
+                            Account deletion is currently disabled due to
+                            technical difficulties. Please email GodderE2D
+                            (main@godder.xyz) alternatively.
+                          </>,
+                          { duration: 20000 }
+                        );
+                      }}
                     >
                       Delete my account
                     </button>
                     <button
                       className="btn ml-1.5"
-                      onClick={() => setModalOpen(false)}
+                      onClick={() => {
+                        setModalOpen(false);
+                      }}
                     >
                       Nevermind
                     </button>

@@ -15,7 +15,6 @@ const Resources: NextPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
-        <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
         <meta property="og:title" content="Resources · GodderE2D" />
         <meta property="og:type" content="website" />
@@ -38,7 +37,7 @@ const Resources: NextPage = () => {
       <Navbar />
 
       <div>
-        <div className="flex-col lg:mx-32 md:mx-16 mx-8 flex lg:flex-row">
+        <div className="flex-col lg:mx-32 md:mx-16 mx-4 flex lg:flex-row">
           <div className="prose max-w-max">
             <h1>Resources</h1>
 
@@ -94,7 +93,7 @@ const Resources: NextPage = () => {
                   ></path>
                 </svg>
 
-                <span>Response time: ~24 hours | max 48 hours</span>
+                <span>Response time: ~24 hours • max 48 hours</span>
               </div>
             </div>
 
@@ -193,8 +192,9 @@ const Resources: NextPage = () => {
                 >
                   Cordviews
                 </a>
-                : An unique Discord listing service with tons of features using
-                new Discord technology
+                : Cordviews is a Discord platform for users of Discord to find a
+                server to join with trusted reviews, and trusted feedback for
+                server admins
               </li>
             </ul>
 
@@ -204,15 +204,14 @@ const Resources: NextPage = () => {
 
             <ul>
               <li>
-                <strong>Discord</strong>: [GodderE2D]#7290 (
-                <code>525248423310524416</code>){" "}
                 <a
                   href="https://dsc.bio/godder"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  (dsc.bio)
+                  Discord
                 </a>
+                : [GodderE2D]#7290 (ID: <code>525248423310524416</code>)
               </li>
 
               <li>

@@ -218,7 +218,6 @@ const Blog: NextPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
-        <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
         <meta property="og:title" content="Blog · GodderE2D" />
         <meta property="og:type" content="website" />
@@ -240,66 +239,68 @@ const Blog: NextPage = () => {
 
       <Navbar />
 
-      <div className="flex-col justify-center flex items-center lg:flex-row">
-        <div className="text-center">
+      <div className="lg:mx-36 md:mx-12 mx-4">
+        <div className="text-left mx-4">
           <h1 className="mb-5 text-5xl font-extrabold">Blog</h1>
 
-          <p>
+          <p className="max-w-xl">
             Sometimes I post here for some reason, and no ones sees it. That
             {"'"}s sad...
+            <br />
+            <strong>Coming Soon 👀</strong>
           </p>
         </div>
-      </div>
 
-      <div className="h-14" />
+        <div className="h-14" />
 
-      <div className="lg:mx-56 md:mx-40 sm:mx-24 mx-12">
-        <div className="flex flex-col w-full">
-          {data.map((blog: BlogInfo) => (
-            <div key={slug(blog.title)}>
-              <Link href={`/blog/${slug(blog.title)}`} passHref>
-                <div className="grid card bg-base-300 rounded-box cursor-pointer">
-                  <div className="mx-6 my-6">
-                    {blog.tags.map((tag: string) => (
-                      <div key={tag} className="badge badge-success mr-2">
-                        {tag}
+        <div className="hidden">
+          <div className="flex flex-col w-full">
+            {data.map((blog: BlogInfo) => (
+              <div key={slug(blog.title)}>
+                <Link href={`/blog/${slug(blog.title)}`} passHref>
+                  <div className="grid card bg-base-300 rounded-box cursor-pointer">
+                    <div className="mx-6 my-6">
+                      {blog.tags.map((tag: string) => (
+                        <div key={tag} className="badge badge-success mr-2">
+                          {tag}
+                        </div>
+                      ))}
+
+                      <div className="h-2" />
+
+                      <h3 className="text-2xl">
+                        <strong>{blog.title}</strong>
+                      </h3>
+
+                      <p>{blog.description}</p>
+
+                      <small className="opacity-60">
+                        Created on {formatDate(blog.createdAt)}
+                        {blog.updatedAt &&
+                          ` • Updated on ${formatDate(blog.updatedAt)}`}
+                      </small>
+
+                      <div>
+                        <span className="mr-2">
+                          <EyeOutline cssClasses="inline mr-1" />
+                          {blog.views}
+                        </span>
+                        <span className="mx-2">
+                          <HeartOutline cssClasses="inline mr-1" />
+                          {blog.likes}
+                        </span>
+                        <span className="ml-2">
+                          <ChatbubbleEllipsesOutline cssClasses="inline mr-1" />
+                          {blog.comments}
+                        </span>
                       </div>
-                    ))}
-
-                    <div className="h-2" />
-
-                    <h3 className="text-2xl">
-                      <strong>{blog.title}</strong>
-                    </h3>
-
-                    <p>{blog.description}</p>
-
-                    <small className="opacity-60">
-                      Created on {formatDate(blog.createdAt)}
-                      {blog.updatedAt &&
-                        ` • Updated on ${formatDate(blog.updatedAt)}`}
-                    </small>
-
-                    <div>
-                      <span className="mr-2">
-                        <EyeOutline cssClasses="inline mr-1" />
-                        {blog.views}
-                      </span>
-                      <span className="mx-2">
-                        <HeartOutline cssClasses="inline mr-1" />
-                        {blog.likes}
-                      </span>
-                      <span className="ml-2">
-                        <ChatbubbleEllipsesOutline cssClasses="inline mr-1" />
-                        {blog.comments}
-                      </span>
                     </div>
                   </div>
-                </div>
-              </Link>
-              <div className="h-4" />
-            </div>
-          ))}
+                </Link>
+                <div className="h-4" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

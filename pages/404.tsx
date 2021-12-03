@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { RefreshOutline } from "react-ionicons";
+import { RefreshOutline, HomeOutline } from "react-ionicons";
 
 const NotFound: NextPage = () => {
   const randomTexts = [
@@ -39,7 +39,6 @@ const NotFound: NextPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
         />
-        <script async src="https://arc.io/widget.min.js#vVqUgoBT"></script>
 
         <meta property="og:title" content="404 · GodderE2D" />
         <meta property="og:type" content="website" />
@@ -56,11 +55,10 @@ const NotFound: NextPage = () => {
       <Navbar />
 
       <div>
-        <div className="flex-col justify-center flex items-center lg:flex-row">
-          <div className="text-center">
+        <div className="lg:mx-36 md:mx-12 mx-4">
+          <div className="text-left mx-4">
             <h1 className="mb-5 text-5xl font-extrabold">404</h1>
-
-            <p>
+            <p className="max-w-2xl">
               {text}
 
               <RefreshOutline
@@ -69,16 +67,16 @@ const NotFound: NextPage = () => {
                 onClick={() => setText(randomTexts[randomIndex()])}
               />
             </p>
-
             <small className="opacity-60">
               The requested resource has been renamed, moved, deleted, or never
               existed in the first place.
             </small>
-
             <div className="h-14 block" />
-
             <Link href="/" passHref>
-              <div className="btn btn-primary btn-wide">Take me back home</div>
+              <div className="btn btn-primary btn-wide">
+                <HomeOutline color="#ffffff" cssClasses="inline mr-2" />
+                Go to homepage
+              </div>
             </Link>
           </div>
         </div>
