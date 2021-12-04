@@ -327,7 +327,7 @@ const Home = () => {
   return (
     <div>
       <Toaster position="bottom-right" reverseOrder={false} />
-      <div className="navbar mb-2 bg-primary-focus text-neutral-content">
+      <div className="navbar mb-2 bg-primary-focus text-neutral-content fixed min-w-full z-50">
         <div
           className="flex-none lg:hidden xl:hidden 2xl:hidden"
           onClick={() => setIsActive(!isActive)}
@@ -447,7 +447,7 @@ const Home = () => {
         <MobileContent />
       </div>
 
-      <div className="h-20" />
+      <div className="h-40" />
     </div>
   );
 };
