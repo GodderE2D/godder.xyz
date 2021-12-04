@@ -31,7 +31,6 @@ const Footer = () => {
             href="https://github.com/GodderE2D/godder.xyz"
             className="footer-github-link"
             title="Go to Website GitHub"
-            aria-label="Go to Website GitHub"
             target="_blank"
             rel="noreferrer"
           ></a>
