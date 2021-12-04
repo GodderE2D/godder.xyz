@@ -34,22 +34,8 @@ const NotFound: NextPage = () => {
       <Head>
         <title>404 · GodderE2D</title>
         <link rel="icon" href="/logo-rounded.png" />
-
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
-        />
-
-        <meta property="og:title" content="404 · GodderE2D" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo-rounded.png" />
-        <meta property="theme-color" content="40bf6c" />
-        <meta property="og:description" content={text} />
-        <meta itemProp="name" content="404 · GodderE2D" />
-        <meta itemProp="description" content={text} />
-        <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
-        <meta itemProp="image" content="/logo-rounded.png" />
-        <meta itemProp="imageUrl" content="/logo-rounded.png" />
+        <meta name="theme-color" content="#40bf6c" />
       </Head>
 
       <Navbar />

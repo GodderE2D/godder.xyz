@@ -11,15 +11,14 @@ const Resources: NextPage = () => {
         <title>Resources · GodderE2D</title>
         <link rel="icon" href="/logo-rounded.png" />
 
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
-        />
-
         <meta property="og:title" content="Resources · GodderE2D" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/logo-rounded.png" />
         <meta name="theme-color" content="#40bf6c" />
+        <meta
+          name="description"
+          content="See GodderE2D's resources listed here, including email addresses, online projects, social platforms, recommendations, and more."
+        />
         <meta
           property="og:description"
           content="See GodderE2D's resources listed here, including email addresses, online projects, social platforms, recommendations, and more."

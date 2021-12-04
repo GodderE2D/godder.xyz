@@ -214,15 +214,14 @@ const Blog: NextPage = () => {
         <title>Blog · GodderE2D</title>
         <link rel="icon" href="/logo-rounded.png" />
 
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
-        />
-
         <meta property="og:title" content="Blog · GodderE2D" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/logo-rounded.png" />
         <meta name="theme-color" content="#40bf6c" />
+        <meta
+          name="description"
+          content="Sometimes I post here for some reason, and no ones sees it. That's sad..."
+        />
         <meta
           property="og:description"
           content="Sometimes I post here for some reason, and no ones sees it. That's sad..."
