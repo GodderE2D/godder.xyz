@@ -186,7 +186,7 @@ const Home = () => {
 
   const MobileContent = () => (
     <div className="lg:hidden">
-      <div className="flex-1 px-2 mx-2">
+      <div className="flex-1 px-2 mx-2 bg-base-100">
         <div className="items-stretch">
           <Link href="/" passHref>
             <div className="btn btn-ghost rounded-btn w-full">Home</div>
@@ -327,124 +327,126 @@ const Home = () => {
   return (
     <div>
       <Toaster position="bottom-right" reverseOrder={false} />
-      <div className="navbar mb-2 bg-primary-focus text-neutral-content fixed min-w-full z-50">
-        <div
-          className="flex-none lg:hidden xl:hidden 2xl:hidden"
-          onClick={() => setIsActive(!isActive)}
-        >
-          <span className="btn btn-square btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block w-6 h-6 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </span>
-        </div>
-
-        <div className="flex-none px-2 mx-2">
-          <span className="text-lg font-bold">
-            <Link href="/">GodderE2D</Link>
-          </span>
-        </div>
-
-        <Content />
-
-        <div className="flex-none">
-          {supabase.auth.user()?.id ? (
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} className="m-1 btn btn-ghost">
-                <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
-                {supabase.auth.user()?.user_metadata.preferred_username}
-              </div>
-              <ul
-                tabIndex={0}
-                className="p-2 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-52"
+      <div className="fixed min-w-full z-50">
+        <div className="navbar bg-primary-focus text-neutral-content">
+          <div
+            className="flex-none lg:hidden xl:hidden 2xl:hidden"
+            onClick={() => setIsActive(!isActive)}
+          >
+            <span className="btn btn-square btn-ghost">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-6 h-6 stroke-current"
               >
-                <li>
-                  <Link href="/my-account">My Account</Link>
-                </li>
-                <li>
-                  <a
-                    onClick={async () => {
-                      setSigningOut(true);
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </span>
+          </div>
 
-                      const { error } = await supabase.auth.signOut();
+          <div className="flex-none px-2 mx-2">
+            <span className="text-lg font-bold">
+              <Link href="/">GodderE2D</Link>
+            </span>
+          </div>
 
-                      if (error) {
-                        console.error(error);
-                        toast.error(
-                          "There was an error when trying to sign out. You may clear your cookies and reload the page as a workaround. Refer to the console for technical details.",
-                          {
-                            duration: 15000,
-                          }
-                        );
+          <Content />
 
-                        setSigningOut(false);
-                      }
+          <div className="flex-none">
+            {supabase.auth.user()?.id ? (
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} className="m-1 btn btn-ghost">
+                  <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
+                  {supabase.auth.user()?.user_metadata.preferred_username}
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="p-2 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-52"
+                >
+                  <li>
+                    <Link href="/my-account">My Account</Link>
+                  </li>
+                  <li>
+                    <a
+                      onClick={async () => {
+                        setSigningOut(true);
 
-                      window.location.reload();
-                    }}
-                  >
-                    {isSigningOut ? "Signing Out..." : "Sign Out"}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <button
-              className={`m-1 btn btn-ghost rounded-btn ${
-                (isLoggingIn || isSigningOut) && "loading"
-              }`}
-              onClick={async () => {
-                setLoggingIn(true);
+                        const { error } = await supabase.auth.signOut();
 
-                const { protocol, host } = window.location;
+                        if (error) {
+                          console.error(error);
+                          toast.error(
+                            "There was an error when trying to sign out. You may clear your cookies and reload the page as a workaround. Refer to the console for technical details.",
+                            {
+                              duration: 15000,
+                            }
+                          );
 
-                window.localStorage.setItem("need-login-reload", "true");
+                          setSigningOut(false);
+                        }
 
-                const { error } = await supabase.auth.signIn(
-                  { provider: "github" },
-                  { redirectTo: `${protocol}//${host}` }
-                );
+                        window.location.reload();
+                      }}
+                    >
+                      {isSigningOut ? "Signing Out..." : "Sign Out"}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <button
+                className={`m-1 btn btn-ghost rounded-btn ${
+                  (isLoggingIn || isSigningOut) && "loading"
+                }`}
+                onClick={async () => {
+                  setLoggingIn(true);
 
-                if (error) {
-                  console.error(error);
-                  toast.error(
-                    "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
-                    {
-                      duration: 15000,
-                    }
+                  const { protocol, host } = window.location;
+
+                  window.localStorage.setItem("need-login-reload", "true");
+
+                  const { error } = await supabase.auth.signIn(
+                    { provider: "github" },
+                    { redirectTo: `${protocol}//${host}` }
                   );
 
-                  setLoggingIn(false);
-                  window.localStorage.removeItem("need-login-reload");
-                }
-              }}
-            >
-              {isLoggingIn || isSigningOut || (
-                <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
-              )}
-              {isSigningOut
-                ? "Signing out..."
-                : isLoggingIn
-                ? "Logging in..."
-                : "Login"}
-            </button>
-          )}
-        </div>
-      </div>
+                  if (error) {
+                    console.error(error);
+                    toast.error(
+                      "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
+                      {
+                        duration: 15000,
+                      }
+                    );
 
-      <div className={`drawer-side ${isActive ? "" : "hidden"}`}>
-        <span className="drawer-overlay"></span>
-        <MobileContent />
+                    setLoggingIn(false);
+                    window.localStorage.removeItem("need-login-reload");
+                  }
+                }}
+              >
+                {isLoggingIn || isSigningOut || (
+                  <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
+                )}
+                {isSigningOut
+                  ? "Signing out..."
+                  : isLoggingIn
+                  ? "Logging in..."
+                  : "Login"}
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className={`drawer-side ${isActive ? "" : "hidden"}`}>
+          <span className="drawer-overlay"></span>
+          <MobileContent />
+        </div>
       </div>
 
       <div className="h-40" />
