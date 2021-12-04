@@ -1,15 +1,18 @@
 # [Godder.xyz](https://www.godder.xyz/)
 
-Godder.xyz - Godder's new website
+Godder.xyz - Godder's website
 
 ## Technologies Used
 
-- React
-- Next.js
-- PostCSS
-- TailwindCSS
-- DaisyUI
-- Supabase
+- JavaScript frameworks
+  - [React](https://reactjs.org)
+  - [Next.js](https://nextjs.org)
+- CSS frameworks
+  - [PostCSS](https://postcss.org)
+  - [TailwindCSS](https://tailwindcss.com)
+  - [DaisyUI](https://daisyui.com)
+- Backend
+  - [Supabase](https://supabase.com)
 
 ## Contributing
 
