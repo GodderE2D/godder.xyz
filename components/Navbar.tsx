@@ -15,9 +15,27 @@ import {
 } from "react-ionicons";
 import toast, { Toaster } from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
-import Router from "next/router";
 
 const Home = () => {
+  useEffect(() => {
+    // TODO: remove this when outage is resolved.
+    if (localStorage.getItem("alertSeen") === "true") return;
+
+    toast.error(
+      (t) => (
+        <span>
+          Authentication related actions (logging in/out) is currently not
+          functioning properly. We are sorry for any inconveniences caused.{" "}
+          <button className="link" onClick={() => toast.dismiss(t.id)}>
+            Dismiss
+          </button>
+        </span>
+      ),
+      { duration: 60000, position: "top-right" }
+    );
+    localStorage.setItem("alertSeen", "true");
+  });
+
   const [isActive, setIsActive] = useState(false);
   const [isSigningOut, setSigningOut] = useState(false);
   const [isLoggingIn, setLoggingIn] = useState(false);
