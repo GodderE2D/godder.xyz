@@ -1,3 +1,5 @@
+// Not in use for now because I'm lazy.
+
 import React from "react";
 
 const Alert = ({
