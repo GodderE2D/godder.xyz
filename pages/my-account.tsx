@@ -1,12 +1,31 @@
 import React, { useState } from "react";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import toast from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
+import { BlogsType } from "../types/supabase";
 
-const MyAccount: NextPage = () => {
+export const getServerSideProps: GetServerSideProps<{
+  blogData: BlogsType | null;
+}> = async () => {
+  const { data, error } = await supabase
+    .from<BlogsType>("blogs")
+    .select()
+    .limit(1)
+    .order("createdAt", { ascending: false });
+
+  if (error) throw error;
+
+  return {
+    props: {
+      blogData: data?.[0] ?? null,
+    },
+  };
+};
+
+const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isCheckboxTicked, setCheckboxTicked] = useState(false);
 
@@ -27,8 +46,7 @@ const MyAccount: NextPage = () => {
       <Navbar />
 
       <div className="lg:mx-36 md:mx-12 mx-4">
-        <h1 className="mb-5 text-5xl font-extrabold">My Account</h1>
-        <div className="h-8" />
+        <h1 className="mb-6 text-5xl font-extrabold">My Account</h1>
 
         {!supabase.auth.user()?.id ? (
           <div>
@@ -43,7 +61,7 @@ const MyAccount: NextPage = () => {
               type="text"
               value={username}
               readOnly
-              className="input input-bordered lg:w-96"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -55,7 +73,7 @@ const MyAccount: NextPage = () => {
               type="text"
               value={email}
               readOnly
-              className="input input-bordered lg:w-96"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -67,7 +85,7 @@ const MyAccount: NextPage = () => {
               type="text"
               value={accountId}
               readOnly
-              className="input input-bordered lg:w-96"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -79,7 +97,7 @@ const MyAccount: NextPage = () => {
               type="text"
               value={githubId}
               readOnly
-              className="input input-bordered lg:w-96"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-8" />
@@ -154,7 +172,7 @@ const MyAccount: NextPage = () => {
         )}
       </div>
 
-      <Footer />
+      <Footer blogData={blogData} />
     </div>
   );
 };

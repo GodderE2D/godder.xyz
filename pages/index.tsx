@@ -1,11 +1,31 @@
 import Link from "next/link";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FileTrayOutline } from "react-ionicons";
+import { BlogsType } from "../types/supabase";
+import { supabase } from "../utils/supabaseClient";
 
-const Home: NextPage = () => {
+export const getServerSideProps: GetServerSideProps<{
+  blogData: BlogsType | null;
+}> = async () => {
+  const { data, error } = await supabase
+    .from<BlogsType>("blogs")
+    .select()
+    .limit(1)
+    .order("createdAt", { ascending: false });
+
+  if (error) throw error;
+
+  return {
+    props: {
+      blogData: data?.[0] ?? null,
+    },
+  };
+};
+
+const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
   return (
     <div>
       <Head>
@@ -77,7 +97,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer blogData={blogData} />
     </div>
   );
 };

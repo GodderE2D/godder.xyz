@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { RefreshOutline, HomeOutline } from "react-ionicons";
+import { BlogsType } from "../types/supabase";
+import { supabase } from "../utils/supabaseClient";
 
 const NotFound: NextPage = () => {
+  const [latestBlog, setLatestBlog] = useState<BlogsType | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase
+        .from<BlogsType>("blogs")
+        .select()
+        .limit(1)
+        .order("createdAt", { ascending: false });
+
+      if (error) {
+        console.error(error);
+        setLatestBlog(null);
+      }
+
+      setLatestBlog(data?.[0] ?? null);
+    })();
+  });
+
   const randomTexts = [
     "How did we end up here...",
     "Nothing to see here!",
@@ -68,7 +89,7 @@ const NotFound: NextPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer blogData={latestBlog} />
     </div>
   );
 };

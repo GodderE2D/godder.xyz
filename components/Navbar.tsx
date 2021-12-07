@@ -15,6 +15,7 @@ import {
 } from "react-ionicons";
 import toast, { Toaster } from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
+import Router from "next/router";
 
 const Home = () => {
   const [isActive, setIsActive] = useState(false);
@@ -35,14 +36,14 @@ const Home = () => {
       }
     }, 5000);
 
-    window.addEventListener("hashchange", (e) => {
+    window.addEventListener("hashchange", async (e) => {
       const { oldURL } = e as HashChangeEvent;
       const data = window.localStorage.getItem("need-login-reload");
       if (!data) return;
 
       window.localStorage.removeItem("need-login-reload");
       if (oldURL.includes("#access_token=")) {
-        window.location.reload();
+        window.location.replace(data);
       }
     });
   }, []);
@@ -372,6 +373,12 @@ const Home = () => {
                   <li>
                     <Link href="/my-account">My Account</Link>
                   </li>
+                  {supabase.auth.user()?.email ===
+                    process.env.NEXT_PUBLIC_SITE_OWNER_EMAIL_ADDRESS && (
+                    <li>
+                      <Link href="/write">Write a Blog</Link>
+                    </li>
+                  )}
                   <li>
                     <a
                       onClick={async () => {
@@ -407,9 +414,13 @@ const Home = () => {
                 onClick={async () => {
                   setLoggingIn(true);
 
-                  const { protocol, host } = window.location;
+                  const { protocol, host, pathname, search, hash } =
+                    window.location;
 
-                  window.localStorage.setItem("need-login-reload", "true");
+                  window.localStorage.setItem(
+                    "need-login-reload",
+                    `${pathname}${search}${hash}`
+                  );
 
                   const { error } = await supabase.auth.signIn(
                     { provider: "github" },

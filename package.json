@@ -12,8 +12,11 @@
     "prettier": "prettier --check ."
   },
   "dependencies": {
+    "@mdx-js/mdx": "^2.0.0-rc.2",
     "@supabase/supabase-js": "^1.28.0",
     "@tailwindcss/typography": "^0.4.1",
+    "@types/mdx": "^2.0.1",
+    "@types/prettier": "^2.4.2",
     "autoprefixer": "^10.3.4",
     "daisyui": "^1.14.0",
     "dayjs": "^1.10.7",

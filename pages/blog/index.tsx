@@ -1,212 +1,37 @@
 import React from "react";
 import Link from "next/link";
-import type { NextPage } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import {
-  HeartOutline,
-  EyeOutline,
-  ChatbubbleEllipsesOutline,
-} from "react-ionicons";
 import dayjs from "dayjs";
+import { supabase } from "../../utils/supabaseClient";
+import { BlogsType } from "../../types/supabase";
+import toast from "react-hot-toast";
 
-type BlogInfo = {
-  title: string;
-  description: string;
-  createdAt: number;
-  updatedAt: number;
-  views: number;
-  likes: number;
-  comments: number;
-  tags: string[];
+export const getServerSideProps: GetServerSideProps<{
+  rawBlogsData: BlogsType[];
+}> = async () => {
+  const { data, error } = await supabase
+    .from<BlogsType>("blogs")
+    .select()
+    .limit(10)
+    .order("createdAt", { ascending: false });
+
+  if (error) throw error;
+
+  return {
+    props: {
+      rawBlogsData: data || [],
+    },
+  };
 };
 
-type BlogInfoArr = BlogInfo[];
-
-const slug = (title: string) => encodeURIComponent(title);
-const formatDate = (date: number) =>
+const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
 
-const Blog: NextPage = () => {
-  const data: BlogInfoArr = [
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-    {
-      title: "Blog Title #1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-      views: 420,
-      likes: 69,
-      comments: 34,
-      tags: ["Tag #1", "Tag #2", "Tag #3"],
-    },
-  ];
+const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
+  const [blogsData, setBlogsData] = React.useState(rawBlogsData);
 
   return (
     <div>
@@ -245,18 +70,22 @@ const Blog: NextPage = () => {
           <p className="max-w-xl">
             Sometimes I post here for some reason, and no ones sees it. That
             {"'"}s sad...
-            <br />
-            <strong>Coming Soon 👀</strong>
+          </p>
+
+          <div className="h-2" />
+
+          <p className="max-w-xl">
+            Note: Blogs are currently a work-in progress.
           </p>
         </div>
 
         <div className="h-14" />
 
-        <div className="hidden">
+        <div>
           <div className="flex flex-col w-full">
-            {data.map((blog: BlogInfo) => (
-              <div key={slug(blog.title)}>
-                <Link href={`/blog/${slug(blog.title)}`} passHref>
+            {blogsData.map((blog: BlogsType) => (
+              <div key={blog.slug}>
+                <Link href={`/blog/${blog.slug}`} passHref>
                   <div className="grid card bg-base-300 rounded-box cursor-pointer">
                     <div className="mx-6 my-6">
                       {blog.tags.map((tag: string) => (
@@ -275,35 +104,51 @@ const Blog: NextPage = () => {
 
                       <small className="opacity-60">
                         Created on {formatDate(blog.createdAt)}
-                        {blog.updatedAt &&
+                        {blog.createdAt === blog.updatedAt ||
                           ` • Updated on ${formatDate(blog.updatedAt)}`}
                       </small>
-
-                      <div>
-                        <span className="mr-2">
-                          <EyeOutline cssClasses="inline mr-1" />
-                          {blog.views}
-                        </span>
-                        <span className="mx-2">
-                          <HeartOutline cssClasses="inline mr-1" />
-                          {blog.likes}
-                        </span>
-                        <span className="ml-2">
-                          <ChatbubbleEllipsesOutline cssClasses="inline mr-1" />
-                          {blog.comments}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </Link>
                 <div className="h-4" />
               </div>
             ))}
+
+            <small
+              className="opacity-60 link"
+              onClick={async () => {
+                toast.success("Loading more blogs...");
+
+                const { data, error } = await supabase
+                  .from<BlogsType>("blogs")
+                  .select()
+                  .order("createdAt", { ascending: false })
+                  .range(blogsData.length, blogsData.length + 10)
+                  .limit(10);
+
+                if (error) {
+                  console.error(error);
+                  return toast.error(
+                    "An unexpected error occurred when fetching blogs. Refer to the console for details."
+                  );
+                }
+
+                if (!data?.length)
+                  return toast.error("You've reached the end.");
+
+                const newBlogsData = blogsData.concat(data);
+                setBlogsData(newBlogsData);
+
+                toast.success("More blogs! Yum!");
+              }}
+            >
+              Load more...
+            </small>
           </div>
         </div>
       </div>
 
-      <Footer />
+      <Footer blogData={blogsData[0]} />
     </div>
   );
 };

@@ -1,10 +1,31 @@
 import React from "react";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { BlogsType } from "../types/supabase";
+import { supabase } from "../utils/supabaseClient";
+import Alert from "../utils/Alert";
 
-const Resources: NextPage = () => {
+export const getServerSideProps: GetServerSideProps<{
+  blogData: BlogsType | null;
+}> = async () => {
+  const { data, error } = await supabase
+    .from<BlogsType>("blogs")
+    .select()
+    .limit(1)
+    .order("createdAt", { ascending: false });
+
+  if (error) throw error;
+
+  return {
+    props: {
+      blogData: data?.[0] ?? null,
+    },
+  };
+};
+
+const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
   return (
     <div>
       <Head>
@@ -76,25 +97,9 @@ const Resources: NextPage = () => {
               reason.
             </p>
 
-            <div className="!alert !alert-info">
-              <div className="!flex-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6 mx-2 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-
-                <span>Response time: ~24 hours • max 48 hours</span>
-              </div>
-            </div>
+            <Alert type="info" icon="info">
+              Response time: ~24 hours • max 48 hours
+            </Alert>
 
             <ul>
               <li>
@@ -315,29 +320,10 @@ const Resources: NextPage = () => {
 
             <h2>Recommendations</h2>
 
-            <div className="!alert !alert-info">
-              <div className="!flex-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="w-6 h-6 mx-2 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-
-                <span>
-                  I am not affiliated or sponsored by any of these services.
-                  These are purely recommendations and you do not need to use
-                  them.
-                </span>
-              </div>
-            </div>
+            <Alert type="info" icon="info">
+              I am not affiliated or sponsored by any of these services. These
+              are purely recommendations and you do not need to use them.
+            </Alert>
 
             <h3>Discord Servers</h3>
 
@@ -466,7 +452,7 @@ const Resources: NextPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer blogData={blogData} />
     </div>
   );
 };
