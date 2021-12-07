@@ -277,7 +277,6 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
                 }
 
                 setLoading(false);
-                console.log("Published blog:", data);
                 toast.success(
                   "Blog published successfully! Redirecting you to the blog page...",
                   { duration: 3000 }
@@ -335,7 +334,6 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               onClick={() => {
                 const fetched: DraftType =
                   supabase.auth.user()?.user_metadata.blogDraft;
-                console.log(fetched);
                 setTitle(fetched?.title);
                 setSlug(fetched?.slug);
                 setDescription(fetched?.description);
