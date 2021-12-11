@@ -1,11 +1,11 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
-  variants: {
-    extend: {},
+  purge: {
+    content: ["./**/*.html"],
+    options: {
+      safelist: [/data-theme$/],
+    },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
@@ -13,6 +13,7 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: require("daisyui/colors"),
       typography: {
         DEFAULT: {
           css: {

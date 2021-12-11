@@ -4,36 +4,17 @@
   "license": "Apache-2.0",
   "private": false,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "serve": "echo \"!!!!!!!! ensure you have serve installed (yarn global add serve)\" && serve .",
     "format": "prettier .",
     "prettier": "prettier --check ."
   },
   "dependencies": {
-    "@mdx-js/mdx": "^2.0.0-rc.2",
-    "@supabase/supabase-js": "^1.28.0",
     "@tailwindcss/typography": "^0.4.1",
-    "@types/mdx": "^2.0.1",
-    "@types/prettier": "^2.4.2",
     "autoprefixer": "^10.3.4",
     "daisyui": "^1.14.0",
-    "dayjs": "^1.10.7",
-    "next": "12",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hot-toast": "^2.1.1",
-    "react-ionicons": "^4.2.0",
-    "sharp": "^0.29.1",
-    "styled-components": "^5.3.1",
     "tailwindcss": "^2.2.15"
   },
   "devDependencies": {
-    "@types/react": "17.0.20",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "prettier": "^2.4.1",
-    "typescript": "4.4.2"
+    "prettier": "^2.4.1"
   }
 }
