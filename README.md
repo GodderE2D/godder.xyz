@@ -43,6 +43,10 @@ Must be done by 2.0 release
 - [ ] Comment likes (from users) & hearts (from GodderE2D)
 - [ ] Comment deletion from GodderE2D
 
+## Self Hosting
+
+You will need a Supabase project to self-host this website. Please see the [database README](database/README.md) for more information.
+
 ## Contributing
 
 You are welcome to open an issue or pull request if you see a bug, typo, or anything else. All issues/PRs will be reviewed within 7 days.

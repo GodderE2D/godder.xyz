@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";

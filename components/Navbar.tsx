@@ -17,25 +17,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
 
 const Home = () => {
-  useEffect(() => {
-    // TODO: remove this when outage is resolved.
-    if (localStorage.getItem("alertSeen") === "true") return;
-
-    toast.error(
-      (t) => (
-        <span>
-          Authentication related actions (logging in/out) is currently not
-          functioning properly. We are sorry for any inconveniences caused.{" "}
-          <button className="link" onClick={() => toast.dismiss(t.id)}>
-            Dismiss
-          </button>
-        </span>
-      ),
-      { duration: 60000, position: "top-right" }
-    );
-    localStorage.setItem("alertSeen", "true");
-  });
-
   const [isActive, setIsActive] = useState(false);
   const [isSigningOut, setSigningOut] = useState(false);
   const [isLoggingIn, setLoggingIn] = useState(false);
@@ -346,6 +327,17 @@ const Home = () => {
   return (
     <div>
       <Toaster position="bottom-right" reverseOrder={false} />
+
+      {/* <div className="py-2 overflow-hidden bg-secondary">
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative sm:flex justify-center items-center">
+            <div className="text-sm font-medium text-base-100">
+              ANNOUNCEMENT BAR TEXT HERE
+            </div>
+          </div>
+        </div>
+      </div> */}
+
       <div className="fixed min-w-full z-50">
         <div className="navbar bg-primary-focus text-neutral-content">
           <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Navbar from "../../components/Navbar";
@@ -60,7 +60,7 @@ const BlogPage: NextPage<{
 }> = ({ blogData, latestBlogData }) => {
   const [isRawDataModalOpen, setRawDataModalOpen] = useState(false);
 
-  // @ts-expect-error
+  // @ts-expect-error idk what's wrong, either way it works. probably a typing error in react/jsx-runtime
   const { default: MDXContent } = evaluateSync(blogData.content, {
     ...runtime,
     useDynamicImport: true,
