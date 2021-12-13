@@ -374,10 +374,10 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.6.tgz#023d72a5c4531b4ce204528971700a78a85a0c50"
   integrity sha512-Myxw//kzromB9yWgS8qYGuGVf91oBUUJpNvy5eM50sqvmKLbKjwLxohJnkWGTeeI9v9IBMtPLxz5Gc60FIfvCA==
 
-"@supabase/gotrue-js@^1.21.0":
-  version "1.21.6"
-  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.21.6.tgz#c7e679960d6f00267dbfc8607e2766a4413f74ce"
-  integrity sha512-3UEM0uSufrwAFMXKfr4SDPsrkHkR0nprUlzkzSK6by1Owab6A3bcVChx3yZn7yWqW/cFY2t5CnqWR9ayaw4Pmw==
+"@supabase/gotrue-js@^1.21.7":
+  version "1.21.7"
+  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.21.7.tgz#ec3fdf2199a28fb65c1ae94a3c10032536c0aa4e"
+  integrity sha512-YnL4cO3Q+ugatWEtgCEnLt+Wwi0VpOVTPSSjSSUho2x3cH7+juRBTrVbYky/W6YVgAw/ZJrVUFPh/NcUCUhdmw==
   dependencies:
     cross-fetch "^3.0.6"
 
@@ -388,10 +388,10 @@
   dependencies:
     cross-fetch "^3.0.6"
 
-"@supabase/realtime-js@^1.2.1":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-1.3.0.tgz#4826b934228ba05ab2b7dc7435d8677626fb1f92"
-  integrity sha512-neGDYt7hzyEI+/8cofk4GO/es4TE+vOSsBLFveYTmjq8Yl1FfVtL5EHfiPP+xo//35RnzhD75v1jBUEOfMhCtw==
+"@supabase/realtime-js@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-1.3.3.tgz#973c4cacf8062b4f1e435a0b250a2758e16e15f1"
+  integrity sha512-9D79jlo/56VQf/U7TWhu24epCoj0vWJ7ALkGcqci8Luk/iOcdCxY1NJ76BbS1UnpXEIvQxQGb1R5NSexriKcUA==
   dependencies:
     "@types/websocket" "^1.0.3"
     websocket "^1.0.34"
@@ -403,14 +403,14 @@
   dependencies:
     cross-fetch "^3.1.0"
 
-"@supabase/supabase-js@^1.28.0":
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.28.0.tgz#b62749c197a134f63c10b4cd567c22378bfa0423"
-  integrity sha512-dGY8CsS0gYLdQeTW8ueMrR+CC9+LTg/0KuM57ul00FwyqtyJQMNARYePr+IcUF9ML2B6KTNibnKuwSU2BbxnRA==
+"@supabase/supabase-js@^1.28.5":
+  version "1.28.5"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.28.5.tgz#359724ceda630f54a4fd403e225b68128c29b1a7"
+  integrity sha512-RZFSkj0tC6YppUVOBDldLLko4BgV8ASY+OiXC1ZxpcwmNInPgGiDkv59kVPN1UC96vnRQ/1fbFngPcwTtb1Qjw==
   dependencies:
-    "@supabase/gotrue-js" "^1.21.0"
+    "@supabase/gotrue-js" "^1.21.7"
     "@supabase/postgrest-js" "^0.35.0"
-    "@supabase/realtime-js" "^1.2.1"
+    "@supabase/realtime-js" "^1.3.3"
     "@supabase/storage-js" "^1.5.0"
 
 "@tailwindcss/typography@^0.5.0":

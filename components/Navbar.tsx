@@ -15,8 +15,10 @@ import {
 } from "react-ionicons";
 import toast, { Toaster } from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const Router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const [isSigningOut, setSigningOut] = useState(false);
   const [isLoggingIn, setLoggingIn] = useState(false);
@@ -417,49 +419,100 @@ const Home = () => {
                 </ul>
               </div>
             ) : (
-              <button
-                className={`m-1 btn btn-ghost rounded-btn ${
-                  (isLoggingIn || isSigningOut) && "loading"
-                }`}
-                onClick={async () => {
-                  setLoggingIn(true);
+              <div className="dropdown dropdown-end">
+                <button
+                  tabIndex={0}
+                  className={`m-1 btn btn-ghost rounded-btn ${
+                    (isLoggingIn || isSigningOut) && "loading"
+                  }`}
+                >
+                  {isLoggingIn || isSigningOut || (
+                    <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
+                  )}
+                  {isSigningOut
+                    ? "Signing out..."
+                    : isLoggingIn
+                    ? "Logging in..."
+                    : "Login"}
+                </button>
+                <ul
+                  tabIndex={0}
+                  className="p-2 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-max"
+                >
+                  <li>
+                    <a
+                      onClick={async () => {
+                        setLoggingIn(true);
 
-                  const { protocol, host, pathname, search, hash } =
-                    window.location;
+                        const { protocol, host, pathname, search, hash } =
+                          window.location;
 
-                  window.localStorage.setItem(
-                    "need-login-reload",
-                    `${pathname}${search}${hash}`
-                  );
+                        window.localStorage.setItem(
+                          "need-login-reload",
+                          `${pathname}${search}${hash}`
+                        );
 
-                  const { error } = await supabase.auth.signIn(
-                    { provider: "github" },
-                    { redirectTo: `${protocol}//${host}` }
-                  );
+                        const { error } = await supabase.auth.signIn(
+                          { provider: "discord" },
+                          { redirectTo: `${protocol}//${host}` }
+                        );
 
-                  if (error) {
-                    console.error(error);
-                    toast.error(
-                      "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
-                      {
-                        duration: 15000,
-                      }
-                    );
+                        if (error) {
+                          console.error(error);
+                          toast.error(
+                            "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
+                            {
+                              duration: 15000,
+                            }
+                          );
 
-                    setLoggingIn(false);
-                    window.localStorage.removeItem("need-login-reload");
-                  }
-                }}
-              >
-                {isLoggingIn || isSigningOut || (
-                  <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
-                )}
-                {isSigningOut
-                  ? "Signing out..."
-                  : isLoggingIn
-                  ? "Logging in..."
-                  : "Login"}
-              </button>
+                          setLoggingIn(false);
+                          window.localStorage.removeItem("need-login-reload");
+                        }
+                      }}
+                    >
+                      <LogoDiscord cssClasses="mr-2" />
+                      Login with Discord
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={async () => {
+                        setLoggingIn(true);
+
+                        const { protocol, host, pathname, search, hash } =
+                          window.location;
+
+                        window.localStorage.setItem(
+                          "need-login-reload",
+                          `${pathname}${search}${hash}`
+                        );
+
+                        const { error } = await supabase.auth.signIn(
+                          { provider: "github" },
+                          { redirectTo: `${protocol}//${host}` }
+                        );
+
+                        if (error) {
+                          console.error(error);
+                          toast.error(
+                            "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
+                            {
+                              duration: 15000,
+                            }
+                          );
+
+                          setLoggingIn(false);
+                          window.localStorage.removeItem("need-login-reload");
+                        }
+                      }}
+                    >
+                      <LogoGithub cssClasses="mr-2" />
+                      Login with GitHub
+                    </a>
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
         </div>

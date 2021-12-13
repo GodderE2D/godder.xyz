@@ -34,6 +34,7 @@ Must be done by 2.0 release
 
 Must be done by 2.0 release
 
+- [ ] Blog searching
 - [ ] Blog edits
 - [ ] Table of contents (including hash links)
 - [ ] View & like counts
