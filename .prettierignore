@@ -24,3 +24,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# license
+LICENSE

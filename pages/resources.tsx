@@ -190,15 +190,28 @@ const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             <ul>
               <li>
                 <a
+                  href="https://modslides.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Modslides
+                </a>
+                : Learn and discuss online moderation for your Discord servers,
+                online forums, and more!
+              </li>
+            </ul>
+
+            <ul>
+              <li>
+                <a
                   href="https://www.cordviews.tk/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Cordviews
                 </a>
-                : Cordviews is a Discord platform for users of Discord to find a
-                server to join with trusted reviews, and trusted feedback for
-                server admins
+                : A Discord platform to find servers with trusted reviews, and
+                trusted feedback for server admins.
               </li>
             </ul>
 
