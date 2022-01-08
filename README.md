@@ -32,8 +32,9 @@ Must be done by 2.0 release
 - [x] MDX preview on write page
 - [x] Save drafts to database
 
-Must be done by 2.0 release
+Must be done by 3.0 release
 
+- [ ] Branding page
 - [ ] Blog searching
 - [ ] Blog edits
 - [ ] Table of contents (including hash links)

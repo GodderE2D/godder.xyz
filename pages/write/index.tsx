@@ -19,7 +19,7 @@ import { evaluateSync } from "@mdx-js/mdx";
 import type { MDXContent } from "mdx/types";
 import runtime from "react/jsx-runtime";
 // Do not remove below import.
-import Alert from "../../utils/Alert";
+import Alert from "../../components/Alert";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;

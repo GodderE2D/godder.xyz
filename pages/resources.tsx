@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
-import Alert from "../utils/Alert";
+import Alert from "../components/Alert";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;

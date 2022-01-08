@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Eye, Heart } from "react-ionicons";
 import { BlogsType } from "../types/supabase";
 import dayjs from "dayjs";
+import logoRoundedSvg from "../public/logo-rounded.svg";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -23,12 +24,9 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
 
       <footer className="p-10 footer bg-base-200 text-base-content">
         <div>
-          <Image
-            width="50"
-            height="50"
-            src="/logo-rounded.png"
-            alt="GodderE2D Logo"
-          />
+          <div className="w-14 h-14">
+            <Image src={logoRoundedSvg} alt="GodderE2D's Profile Picture" />
+          </div>
 
           <h2 className="text-2xl">
             <strong>GodderE2D</strong>

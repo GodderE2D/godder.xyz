@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1024 1024" width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(255, 255, 255);"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(207, 226, 244);" cx="512.622" cy="510.444" rx="378.43" ry="378.43"/>
+  <g fill="#F44336" transform="matrix(50.353191, 0, 0, 50.353191, 298.170598, 242.844364)" style="">
+    <path d="M 4.255 6.332 L 7.084 6.332 C 6.659 7.53 5.526 8.331 4.255 8.332 C 2.601 8.332 1.255 6.986 1.255 5.332 C 1.255 3.678 2.601 2.332 4.255 2.332 C 4.972 2.332 5.662 2.589 6.198 3.056 L 7.512 1.548 C 6.609 0.763 5.452 0.331 4.255 0.332 C 1.498 0.332 -0.745 2.575 -0.745 5.332 C -0.745 8.089 1.498 10.332 4.255 10.332 C 7.012 10.332 9.255 8.089 9.255 5.332 L 9.255 4.332 L 4.255 4.332 L 4.255 6.332 Z" style="stroke: rgb(0, 0, 0); fill: rgb(0, 168, 153); stroke-width: 0.0992986px;"/>
+  </g>
+  <ellipse style="fill: rgb(0, 168, 153); paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px;" cx="850.677" cy="152.12" rx="38.694" ry="38.694"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="890.183" cy="244.059" rx="20.828" ry="20.828"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="789.107" cy="131.947" rx="10.296" ry="10.296"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="133.817" cy="295.77" rx="20.828" ry="20.828"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="256.967" cy="889.746" rx="20.828" ry="20.828"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="830.277" cy="776.68" rx="20.828" ry="20.828"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="153.97" cy="644.201" rx="35.658" ry="35.658"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(0, 168, 153);" cx="216.015" cy="685.11" rx="7.874" ry="7.874"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(255, 255, 255);" cx="190.788" cy="546.7" rx="25.09" ry="25.09"/>
+</svg>
