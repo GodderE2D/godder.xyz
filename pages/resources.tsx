@@ -61,35 +61,6 @@ const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
           <div className="prose max-w-max">
             <h1>Resources</h1>
 
-            <h2>Advertisement</h2>
-
-            <p>
-              Have time? Please check out{" "}
-              <a
-                href="https://wolvesville.utopium.xyz/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Wolvesville Utopium
-              </a>
-              , a simulation game based off{" "}
-              <a
-                href="https://app.wolvesville.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Wolvesville
-              </a>
-              , an online party game.
-              <br />
-              However, Wolvesville Utopium is fully simulated on Discord! You
-              can play with your friends at anytime, anywhere soon&trade;!
-              <br />
-              It{"'"}s currently dead right now, so if you could check it out,
-              it would mean a lot to me, and the developers, staff, and members
-              there! Thanks a lot 😊
-            </p>
-
             <h2>Email Addresses</h2>
 
             <p>
