@@ -64,8 +64,8 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
       <Navbar />
 
       <div>
-        <div className="flex-col justify-center flex items-center lg:flex-row">
-          <div className="text-left mx-4">
+        <div className="flex flex-col items-center justify-center lg:flex-row">
+          <div className="mx-4 text-left">
             <h1 className="mb-5 text-5xl font-extrabold">
               Hey there, Godder here.
             </h1>

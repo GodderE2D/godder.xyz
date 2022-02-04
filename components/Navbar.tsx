@@ -50,8 +50,8 @@ const Home = () => {
   }, []);
 
   const Content = () => (
-    <div className="flex-1 sm:block md:block px-2 mx-2">
-      <div className="items-stretch hidden lg:flex">
+    <div className="mx-2 flex-1 px-2 sm:block md:block">
+      <div className="hidden items-stretch lg:flex">
         <Link href="/" passHref>
           <span className="btn btn-ghost rounded-btn">Home</span>
         </Link>
@@ -72,13 +72,13 @@ const Home = () => {
           <span className="btn btn-ghost rounded-btn">Blog</span>
         </Link>
 
-        <div className="dropdown dropdown-hover">
+        <div className="dropdown-hover dropdown">
           <div tabIndex={0} className="btn btn-ghost rounded-btn">
             Social Platforms
           </div>
           <ul
             tabIndex={0}
-            className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 text-base-content"
+            className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 text-base-content shadow"
           >
             <li>
               <a
@@ -188,7 +188,7 @@ const Home = () => {
 
   const MobileContent = () => (
     <div className="lg:hidden">
-      <div className="flex-1 px-2 mx-2 bg-base-100">
+      <div className="mx-2 flex-1 bg-base-100 px-2">
         <div className="items-stretch">
           <Link href="/" passHref>
             <div className="btn btn-ghost rounded-btn w-full">Home</div>
@@ -210,20 +210,20 @@ const Home = () => {
             <div className="btn btn-ghost rounded-btn w-full">Blog</div>
           </Link>
 
-          <div className="dropdown dropdown-hover block">
+          <div className="dropdown-hover dropdown block">
             <div tabIndex={0} className="btn btn-ghost rounded-btn w-full">
               Social Platforms
             </div>
             <ul
               tabIndex={0}
-              className="p-2 shadow menu dropdown-content bg-base-100 rounded-box text-base-content justify-center text-center grid grid-cols-2 w-full m-auto"
+              className="dropdown-content menu rounded-box m-auto grid w-full grid-cols-2 justify-center bg-base-100 p-2 text-center text-base-content shadow"
             >
               <li>
                 <a
                   href="https://dsc.bio/godder"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-center content-center"
+                  className="content-center text-center"
                 >
                   <LogoDiscord cssClasses="mr-2" />
                   Discord
@@ -340,18 +340,18 @@ const Home = () => {
         </div>
       </div> */}
 
-      <div className="fixed min-w-full z-50">
+      <div className="fixed z-50 min-w-full">
         <div className="navbar bg-primary-focus text-neutral-content">
           <div
             className="flex-none lg:hidden xl:hidden 2xl:hidden"
             onClick={() => setIsActive(!isActive)}
           >
-            <span className="btn btn-square btn-ghost">
+            <span className="btn btn-ghost btn-square">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 stroke-current"
+                className="inline-block h-6 w-6 stroke-current"
               >
                 <path
                   strokeLinecap="round"
@@ -363,7 +363,7 @@ const Home = () => {
             </span>
           </div>
 
-          <div className="flex-none px-2 mx-2">
+          <div className="mx-2 flex-none px-2">
             <span className="text-lg font-bold">
               <Link href="/">GodderE2D</Link>
             </span>
@@ -373,14 +373,14 @@ const Home = () => {
 
           <div className="flex-none">
             {supabase.auth.user()?.id ? (
-              <div className="dropdown dropdown-end">
-                <div tabIndex={0} className="m-1 btn btn-ghost">
+              <div className="dropdown-end dropdown">
+                <div tabIndex={0} className="btn btn-ghost m-1">
                   <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
                   {supabase.auth.user()?.user_metadata.preferred_username}
                 </div>
                 <ul
                   tabIndex={0}
-                  className="p-2 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-52"
+                  className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 text-base-content shadow"
                 >
                   <li>
                     <Link href="/my-account">My Account</Link>
@@ -419,10 +419,10 @@ const Home = () => {
                 </ul>
               </div>
             ) : (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown-end dropdown">
                 <button
                   tabIndex={0}
-                  className={`m-1 btn btn-ghost rounded-btn ${
+                  className={`btn btn-ghost rounded-btn m-1 ${
                     (isLoggingIn || isSigningOut) && "loading"
                   }`}
                 >
@@ -437,7 +437,7 @@ const Home = () => {
                 </button>
                 <ul
                   tabIndex={0}
-                  className="p-2 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-max"
+                  className="dropdown-content menu rounded-box w-max bg-base-100 p-2 text-base-content shadow"
                 >
                   <li>
                     <a

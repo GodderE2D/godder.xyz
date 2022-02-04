@@ -37,7 +37,7 @@ const Alert = ({
 export const Info = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 mx-2 stroke-current"
+    className="mx-2 h-6 w-6 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
   >
@@ -52,7 +52,7 @@ export const Info = () => (
 export const Success = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 mx-2 stroke-current"
+    className="mx-2 h-6 w-6 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
   >
@@ -67,7 +67,7 @@ export const Success = () => (
 export const Warning = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 mx-2 stroke-current"
+    className="mx-2 h-6 w-6 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
   >
@@ -82,7 +82,7 @@ export const Warning = () => (
 export const Error = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 mx-2 stroke-current"
+    className="mx-2 h-6 w-6 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
   >
@@ -97,7 +97,7 @@ export const Error = () => (
 export const Tip = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 mx-2 stroke-current"
+    className="mx-2 h-6 w-6 stroke-current"
     fill="none"
     viewBox="0 0 24 24"
   >

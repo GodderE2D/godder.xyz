@@ -57,7 +57,7 @@ const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
       <Navbar />
 
       <div>
-        <div className="flex-col lg:mx-32 md:mx-16 mx-4 flex lg:flex-row">
+        <div className="mx-4 flex flex-col md:mx-16 lg:mx-32 lg:flex-row">
           <div className="prose max-w-max">
             <h1>Resources</h1>
 
@@ -310,7 +310,7 @@ const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  className="w-6 h-6 mx-2 stroke-current"
+                  className="mx-2 h-6 w-6 stroke-current"
                 >
                   <path
                     strokeLinecap="round"

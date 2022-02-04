@@ -104,7 +104,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
       <Navbar />
 
-      <div className="lg:mx-36 md:mx-12 mx-4">
+      <div className="mx-4 md:mx-12 lg:mx-36">
         <h1 className="mb-6 text-5xl font-extrabold">Write a Blog</h1>
 
         {email !== process.env.NEXT_PUBLIC_SITE_OWNER_EMAIL_ADDRESS ? (
@@ -116,7 +116,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input input-bordered w-1/2"
+              className="input-bordered input w-1/2"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -128,7 +128,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input input-bordered w-1/2"
+              className="input-bordered input w-1/2"
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
             />
@@ -139,7 +139,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               <span className="label-text">Description</span>
             </label>
             <textarea
-              className="textarea textarea-bordered w-1/2"
+              className="textarea-bordered textarea w-1/2"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -151,7 +151,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input input-bordered w-1/2"
+              className="input-bordered input w-1/2"
               value={tags.join(" ")}
               onChange={(e) => setTags(e.target.value.split(" "))}
             />
@@ -214,7 +214,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
             {contentMode === "code" ? (
               <textarea
-                className="textarea textarea-bordered font-mono h-96 w-full mt-1"
+                className="textarea-bordered textarea mt-1 h-96 w-full font-mono"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               />
@@ -222,7 +222,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               <div>
                 <div className="h-3" />
                 <div className="mockup-window bg-base-300">
-                  <div className="p-4 bg-base-200">
+                  <div className="bg-base-200 p-4">
                     {MDXContent ? (
                       <div className="prose">{MDXContent}</div>
                     ) : (
@@ -292,7 +292,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
                   ? `https://godder.xyz/blog/${slug}`
                   : "A slug is required to generate a link."
               }
-              className="tooltip link"
+              className="link tooltip"
             >
               <button
                 className="btn mx-1"

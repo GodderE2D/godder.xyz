@@ -45,7 +45,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
       <Navbar />
 
-      <div className="lg:mx-36 md:mx-12 mx-4">
+      <div className="mx-4 md:mx-12 lg:mx-36">
         <h1 className="mb-6 text-5xl font-extrabold">My Account</h1>
 
         {!supabase.auth.user()?.id ? (
@@ -61,7 +61,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={username}
               readOnly
-              className="input input-bordered w-2/5"
+              className="input-bordered input w-2/5"
             />
 
             <div className="h-3" />
@@ -73,7 +73,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={email}
               readOnly
-              className="input input-bordered w-2/5"
+              className="input-bordered input w-2/5"
             />
 
             <div className="h-3" />
@@ -85,7 +85,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={accountId}
               readOnly
-              className="input input-bordered w-2/5"
+              className="input-bordered input w-2/5"
             />
 
             <div className="h-3" />
@@ -97,13 +97,13 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={githubId}
               readOnly
-              className="input input-bordered w-2/5"
+              className="input-bordered input w-2/5"
             />
 
             <div className="h-8" />
 
             <button
-              className="btn btn-error modal-button"
+              className="modal-button btn btn-error"
               onClick={() => {
                 setModalOpen(true);
               }}
@@ -124,7 +124,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
                   <div className="h-3" />
 
                   <div className="form-control">
-                    <label className="cursor-pointer label">
+                    <label className="label cursor-pointer">
                       <input
                         type="checkbox"
                         className="checkbox"

@@ -71,8 +71,8 @@ const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
 
       <Navbar />
 
-      <div className="lg:mx-36 md:mx-12 mx-4">
-        <div className="text-left mx-4">
+      <div className="mx-4 md:mx-12 lg:mx-36">
+        <div className="mx-4 text-left">
           <h1 className="mb-5 text-5xl font-extrabold">Blog</h1>
 
           <p className="max-w-xl">
@@ -90,11 +90,11 @@ const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
         <div className="h-14" />
 
         <div>
-          <div className="flex flex-col w-full">
+          <div className="flex w-full flex-col">
             {blogsData.map((blog: BlogsType) => (
               <div key={blog.slug}>
                 <Link href={`/blog/${blog.slug}`} passHref>
-                  <div className="grid card bg-base-300 rounded-box cursor-pointer">
+                  <div className="card rounded-box grid cursor-pointer bg-base-300">
                     <div className="mx-6 my-6">
                       {blog.tags.map((tag: string) => (
                         <div key={tag} className="badge badge-success mr-2">
@@ -125,7 +125,7 @@ const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
             ))}
 
             <small
-              className="opacity-60 link"
+              className="link opacity-60"
               onClick={async () => {
                 toast.success("Loading more blogs...");
 

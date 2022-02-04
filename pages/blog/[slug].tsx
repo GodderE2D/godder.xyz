@@ -87,15 +87,15 @@ const BlogPage: NextPage<{
 
       <Navbar />
 
-      <div className="lg:mx-36 md:mx-12 mx-4">
-        <div className="text-left mx-4">
-          <div className="dropdown dropdown-end float-right">
+      <div className="mx-4 md:mx-12 lg:mx-36">
+        <div className="mx-4 text-left">
+          <div className="dropdown-end dropdown float-right">
             <div tabIndex={0} className="btn btn-ghost m-1">
               <EllipsisHorizontal />
             </div>
             <ul
               tabIndex={0}
-              className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+              className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
             >
               <li>
                 <a
@@ -203,7 +203,7 @@ const BlogPage: NextPage<{
                 <span className="label-text">Raw API Data</span>
               </label>
               <textarea
-                className="textarea textarea-bordered font-mono resize-none w-full h-96"
+                className="textarea-bordered textarea h-96 w-full resize-none font-mono"
                 value={JSON.stringify(blogData, null, 2)}
                 readOnly
               />

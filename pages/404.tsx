@@ -62,8 +62,8 @@ const NotFound: NextPage = () => {
       <Navbar />
 
       <div>
-        <div className="lg:mx-36 md:mx-12 mx-4">
-          <div className="text-left mx-4">
+        <div className="mx-4 md:mx-12 lg:mx-36">
+          <div className="mx-4 text-left">
             <h1 className="mb-5 text-5xl font-extrabold">404</h1>
             <p className="max-w-2xl">
               {text}
@@ -78,7 +78,7 @@ const NotFound: NextPage = () => {
               The requested resource has been renamed, moved, deleted, or never
               existed in the first place.
             </small>
-            <div className="h-14 block" />
+            <div className="block h-14" />
             <Link href="/" passHref>
               <div className="btn btn-primary btn-wide">
                 <HomeOutline color="#ffffff" cssClasses="inline mr-2" />

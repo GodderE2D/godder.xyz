@@ -22,9 +22,9 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
     <div>
       <div className="h-20" />
 
-      <footer className="p-10 footer bg-base-200 text-base-content">
+      <footer className="footer bg-base-200 p-10 text-base-content">
         <div>
-          <div className="w-14 h-14">
+          <div className="h-14 w-14">
             <Image src={logoRoundedSvg} alt="GodderE2D's Profile Picture" />
           </div>
 
@@ -45,15 +45,15 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
         <div>
           <span className="footer-title">Pages</span>
 
-          <div className="link link-hover">
+          <div className="link-hover link">
             <Link href="/">Home</Link>
           </div>
 
-          <div className="link link-hover">
+          <div className="link-hover link">
             <Link href="/resources">Resources</Link>
           </div>
 
-          <div className="link link-hover">
+          <div className="link-hover link">
             <a
               href="https://dsc.bio/godder"
               target="_blank"
@@ -63,7 +63,7 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
             </a>
           </div>
 
-          <div className="link link-hover">
+          <div className="link-hover link">
             <Link href="/blog">Blog</Link>
           </div>
         </div>
@@ -75,7 +75,7 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
           ) : (
             <div className="max-w-4xl" key={blogData.slug}>
               <Link href={`/blog/${blogData.slug}`} passHref>
-                <div className="grid card bg-base-300 rounded-box cursor-pointer">
+                <div className="card rounded-box grid cursor-pointer bg-base-300">
                   <div className="mx-6 my-6">
                     {blogData.tags.map((tag: string) => (
                       <div key={tag} className="badge badge-success mr-2">
