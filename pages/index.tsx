@@ -87,7 +87,7 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             <div className="h-8" />
 
             <Link href="/resources" passHref>
-              <div className="btn btn-primary btn-wide">
+              <div className="btn btn-primary btn-wide text-base-100">
                 <span>
                   <FileTrayOutline cssClasses="inline mr-2" color="#f9fafb" />
                   <span className="inline">Resources</span>

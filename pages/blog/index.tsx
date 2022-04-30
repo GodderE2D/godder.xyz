@@ -94,7 +94,7 @@ const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
             {blogsData.map((blog: BlogsType) => (
               <div key={blog.slug}>
                 <Link href={`/blog/${blog.slug}`} passHref>
-                  <div className="card rounded-box grid cursor-pointer bg-base-300">
+                  <div className="card rounded-box grid cursor-pointer bg-base-200">
                     <div className="mx-6 my-6">
                       {blog.tags.map((tag: string) => (
                         <div key={tag} className="badge badge-success mr-2">

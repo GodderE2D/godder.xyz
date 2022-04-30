@@ -210,7 +210,7 @@ const BlogPage: NextPage<{
 
               <div className="modal-action">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary text-base-100"
                   onClick={async () => {
                     if (!navigator.clipboard)
                       return toast.error(

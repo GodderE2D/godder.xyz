@@ -80,7 +80,7 @@ const NotFound: NextPage = () => {
             </small>
             <div className="block h-14" />
             <Link href="/" passHref>
-              <div className="btn btn-primary btn-wide">
+              <div className="btn btn-primary btn-wide text-base-100">
                 <HomeOutline color="#ffffff" cssClasses="inline mr-2" />
                 Go to homepage
               </div>

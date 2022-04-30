@@ -103,7 +103,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             <div className="h-8" />
 
             <button
-              className="modal-button btn btn-error"
+              className="modal-button btn btn-error text-base-100"
               onClick={() => {
                 setModalOpen(true);
               }}
@@ -140,7 +140,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
                   <div>
                     <button
-                      className="btn btn-error mr-1.5"
+                      className="btn btn-error mr-1.5 text-base-100"
                       disabled={!isCheckboxTicked}
                       onClick={() => {
                         // Shhh, don't tell anyone.

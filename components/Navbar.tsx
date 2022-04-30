@@ -330,17 +330,25 @@ const Home = () => {
     <div>
       <Toaster position="bottom-right" reverseOrder={false} />
 
-      {/* <div className="py-2 overflow-hidden bg-secondary">
-        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative sm:flex justify-center items-center">
-            <div className="text-sm font-medium text-base-100">
-              ANNOUNCEMENT BAR TEXT HERE
+      <div className="fixed z-50 min-w-full">
+        <div className="overflow-hidden bg-accent py-2">
+          <div className="max-w-8xl relative mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative items-center justify-center sm:flex">
+              <div className="text-sm font-semibold text-base-100">
+                [GodderE2D]#7290 Discord account has been disabled.{" "}
+                <a
+                  href="https://gist.github.com/GodderE2D/f24263df5b9e932805ccc2db04709726"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link"
+                >
+                  Learn more.
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div> */}
 
-      <div className="fixed z-50 min-w-full">
         <div className="navbar bg-primary-focus text-neutral-content">
           <div
             className="flex-none lg:hidden xl:hidden 2xl:hidden"
@@ -523,7 +531,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="h-40" />
+      <div className="h-44" />
     </div>
   );
 };

@@ -236,7 +236,9 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             <div className="h-8" />
 
             <button
-              className={`btn btn-primary ${loading ? "loading" : ""} mr-1`}
+              className={`btn btn-primary text-base-100 ${
+                loading ? "loading" : ""
+              } mr-1`}
               onClick={async () => {
                 setLoading(true);
 

@@ -22,7 +22,7 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
     <div>
       <div className="h-20" />
 
-      <footer className="footer bg-base-200 p-10 text-base-content">
+      <footer className="footer bg-secondary-content p-10 text-base-content">
         <div>
           <div className="h-14 w-14">
             <Image src={logoRoundedSvg} alt="GodderE2D's Profile Picture" />
@@ -75,7 +75,7 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
           ) : (
             <div className="max-w-4xl" key={blogData.slug}>
               <Link href={`/blog/${blogData.slug}`} passHref>
-                <div className="card rounded-box grid cursor-pointer bg-base-300">
+                <div className="card rounded-box grid cursor-pointer bg-base-200">
                   <div className="mx-6 my-6">
                     {blogData.tags.map((tag: string) => (
                       <div key={tag} className="badge badge-success mr-2">
