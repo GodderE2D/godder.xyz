@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import toast from "react-hot-toast";
 import { supabase } from "../utils/supabaseClient";
 import { BlogsType } from "../types/supabase";
+import { useRouter } from "next/router";
+import { pageview } from "../utils/ga";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -26,6 +28,23 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [isCheckboxTicked, setCheckboxTicked] = useState(false);
 
@@ -61,7 +80,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={username}
               readOnly
-              className="input-bordered input w-2/5"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -73,7 +92,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={email}
               readOnly
-              className="input-bordered input w-2/5"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -85,7 +104,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={accountId}
               readOnly
-              className="input-bordered input w-2/5"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-3" />
@@ -97,7 +116,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               type="text"
               value={githubId}
               readOnly
-              className="input-bordered input w-2/5"
+              className="input input-bordered w-2/5"
             />
 
             <div className="h-8" />

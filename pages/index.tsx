@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import { FileTrayOutline } from "react-ionicons";
 import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
+import { useRouter } from "next/router";
+import { pageview } from "../utils/ga";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -27,6 +29,23 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <div>
       <Head>
@@ -59,6 +78,23 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
         <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
         <meta itemProp="image" content="/logo-rounded.png" />
         <meta itemProp="imageUrl" content="/logo-rounded.png" />
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
 
       <Navbar />

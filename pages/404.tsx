@@ -7,8 +7,27 @@ import Footer from "../components/Footer";
 import { RefreshOutline, HomeOutline } from "react-ionicons";
 import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
+import { useRouter } from "next/router";
+import { pageview } from "../utils/ga";
 
 const NotFound: NextPage = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   const [latestBlog, setLatestBlog] = useState<BlogsType | null>(null);
 
   useEffect(() => {

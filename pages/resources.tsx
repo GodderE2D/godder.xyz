@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
 import Alert from "../components/Alert";
+import { useRouter } from "next/router";
+import { pageview } from "../utils/ga";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -26,6 +28,23 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <div>
       <Head>

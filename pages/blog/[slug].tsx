@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import Navbar from "../../components/Navbar";
@@ -11,6 +11,8 @@ import toast from "react-hot-toast";
 import Router from "next/router";
 import { evaluateSync } from "@mdx-js/mdx";
 import runtime from "react/jsx-runtime";
+import { useRouter } from "next/router";
+import { pageview } from "../../utils/ga";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -58,6 +60,23 @@ const BlogPage: NextPage<{
   blogData: BlogsType;
   latestBlogData: BlogsType | null;
 }> = ({ blogData, latestBlogData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   const [isRawDataModalOpen, setRawDataModalOpen] = useState(false);
 
   // @ts-expect-error idk what's wrong, either way it works. probably a typing error in react/jsx-runtime
@@ -89,7 +108,7 @@ const BlogPage: NextPage<{
 
       <div className="mx-4 md:mx-12 lg:mx-36">
         <div className="mx-4 text-left">
-          <div className="dropdown-end dropdown float-right">
+          <div className="dropdown dropdown-end float-right">
             <div tabIndex={0} className="btn btn-ghost m-1">
               <EllipsisHorizontal />
             </div>
@@ -203,7 +222,7 @@ const BlogPage: NextPage<{
                 <span className="label-text">Raw API Data</span>
               </label>
               <textarea
-                className="textarea-bordered textarea h-96 w-full resize-none font-mono"
+                className="textarea textarea-bordered h-96 w-full resize-none font-mono"
                 value={JSON.stringify(blogData, null, 2)}
                 readOnly
               />

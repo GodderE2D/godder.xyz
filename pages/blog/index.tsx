@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
@@ -8,6 +8,8 @@ import dayjs from "dayjs";
 import { supabase } from "../../utils/supabaseClient";
 import { BlogsType } from "../../types/supabase";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
+import { pageview } from "../../utils/ga";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -39,6 +41,23 @@ export const getServerSideProps: GetServerSideProps<{
 };
 
 const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   const [blogsData, setBlogsData] = React.useState(rawBlogsData);
 
   return (

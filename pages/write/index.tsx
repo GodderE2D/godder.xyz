@@ -20,6 +20,8 @@ import type { MDXContent } from "mdx/types";
 import runtime from "react/jsx-runtime";
 // Do not remove below import.
 import Alert from "../../components/Alert";
+import { useRouter } from "next/router";
+import { pageview } from "../../utils/ga";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -48,6 +50,23 @@ type DraftType = {
 };
 
 const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   const email = supabase.auth.user()?.email;
   const [loading, setLoading] = useState(false);
 
@@ -116,7 +135,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input-bordered input w-1/2"
+              className="input input-bordered w-1/2"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -128,7 +147,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input-bordered input w-1/2"
+              className="input input-bordered w-1/2"
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
             />
@@ -139,7 +158,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               <span className="label-text">Description</span>
             </label>
             <textarea
-              className="textarea-bordered textarea w-1/2"
+              className="textarea textarea-bordered w-1/2"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -151,7 +170,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              className="input-bordered input w-1/2"
+              className="input input-bordered w-1/2"
               value={tags.join(" ")}
               onChange={(e) => setTags(e.target.value.split(" "))}
             />
@@ -214,7 +233,7 @@ const Write: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
             {contentMode === "code" ? (
               <textarea
-                className="textarea-bordered textarea mt-1 h-96 w-full font-mono"
+                className="textarea textarea-bordered mt-1 h-96 w-full font-mono"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               />
