@@ -396,14 +396,13 @@ const Resources: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
 
               <li>
                 <a
-                  href="https://mee6.xyz/"
+                  href="https://evie.pw/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  MEE6
+                  Evie
                 </a>
-                : Best multipurpose Discord bot to start out with, if you have
-                little-to-no experience on Discord
+                : Evie is a modern feature rich all-in-one bot for Discord to give you the tools to build the server you want.
               </li>
 
               <li>
