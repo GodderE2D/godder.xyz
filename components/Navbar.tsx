@@ -22,7 +22,6 @@ const Home = () => {
   const [isActive, setIsActive] = useState(false);
   const [isSigningOut, setSigningOut] = useState(false);
   const [isLoggingIn, setLoggingIn] = useState(false);
-  const [isBypassed, setBypass] = useState(false);
 
   useEffect(() => {
     const data = window.localStorage.getItem("need-login-reload");
@@ -49,6 +48,8 @@ const Home = () => {
       }
     });
   }, []);
+
+  console.log(supabase.auth.user());
 
   const Content = () => (
     <div className="mx-2 flex-1 px-2 sm:block md:block">
@@ -355,7 +356,7 @@ const Home = () => {
             className="flex-none lg:hidden xl:hidden 2xl:hidden"
             onClick={() => setIsActive(!isActive)}
           >
-            <span className="btn btn-ghost btn-square">
+            <span className="btn btn-square btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -385,7 +386,7 @@ const Home = () => {
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} className="btn btn-ghost m-1">
                   <PersonCircle color="#FFFFFF" cssClasses="mr-2" />
-                  {supabase.auth.user()?.user_metadata.preferred_username}
+                  {supabase.auth.user()?.user_metadata.full_name}
                 </div>
                 <ul
                   tabIndex={0}
@@ -448,115 +449,85 @@ const Home = () => {
                   tabIndex={0}
                   className="dropdown-content menu rounded-box w-max bg-base-100 p-2 text-base-content shadow"
                 >
-                  {isBypassed ? (
-                    <>
-                      <li>
-                        <a
-                          onClick={async () => {
-                            setLoggingIn(true);
+                  <li>
+                    <a
+                      onClick={async () => {
+                        setLoggingIn(true);
 
-                            const { protocol, host, pathname, search, hash } =
-                              window.location;
+                        const { protocol, host, pathname, search, hash } =
+                          window.location;
 
-                            window.localStorage.setItem(
-                              "need-login-reload",
-                              `${pathname}${search}${hash}`
-                            );
+                        window.localStorage.setItem(
+                          "need-login-reload",
+                          `${pathname}${search}${hash}`
+                        );
 
-                            const { error } = await supabase.auth.signIn(
-                              { provider: "github" },
-                              { redirectTo: `${protocol}//${host}` }
-                            );
+                        const { error } = await supabase.auth.signIn(
+                          { provider: "github" },
+                          { redirectTo: `${protocol}//${host}` }
+                        );
 
-                            if (error) {
-                              console.error(error);
-                              toast.error(
-                                "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
-                                {
-                                  duration: 15000,
-                                }
-                              );
-
-                              setLoggingIn(false);
-                              window.localStorage.removeItem(
-                                "need-login-reload"
-                              );
+                        if (error) {
+                          console.error(error);
+                          toast.error(
+                            "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
+                            {
+                              duration: 15000,
                             }
-                          }}
-                        >
-                          <LogoGithub cssClasses="mr-2" />
-                          Login with GitHub
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          onClick={async () => {
-                            setLoggingIn(true);
+                          );
 
-                            const { protocol, host, pathname, search, hash } =
-                              window.location;
+                          setLoggingIn(false);
+                          window.localStorage.removeItem("need-login-reload");
+                        }
+                      }}
+                    >
+                      <LogoGithub cssClasses="mr-2" />
+                      Login with GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={async () => {
+                        setLoggingIn(true);
 
-                            window.localStorage.setItem(
-                              "need-login-reload",
-                              `${pathname}${search}${hash}`
-                            );
+                        const { protocol, host, pathname, search, hash } =
+                          window.location;
 
-                            const { error } = await supabase.auth.signIn(
-                              { provider: "discord" },
-                              { redirectTo: `${protocol}//${host}` }
-                            );
+                        window.localStorage.setItem(
+                          "need-login-reload",
+                          `${pathname}${search}${hash}`
+                        );
 
-                            if (error) {
-                              console.error(error);
-                              toast.error(
-                                "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
-                                {
-                                  duration: 15000,
-                                }
-                              );
+                        const { error } = await supabase.auth.signIn(
+                          { provider: "discord" },
+                          { redirectTo: `${protocol}//${host}` }
+                        );
 
-                              setLoggingIn(false);
-                              window.localStorage.removeItem(
-                                "need-login-reload"
-                              );
+                        if (error) {
+                          console.error(error);
+                          toast.error(
+                            "There was an error when trying to login. Sorry for any inconveniences caused. Refer to the console for technical details.",
+                            {
+                              duration: 15000,
                             }
-                          }}
-                        >
-                          <LogoDiscord cssClasses="mr-2" />
-                          Login with Discord (see below)
-                        </a>
-                      </li>
-                      <small className="mx-4 max-w-xs py-2 opacity-80">
-                        Note: If you have signed up on Godder.xyz using Discord{" "}
-                        <strong>before 27/5/22</strong>, your account has been
-                        deleted due to the OAuth app being linked to the old
-                        Discord account. You are encouraged to create a new
-                        account. If you have any inquiries, please contact
-                        GodderE2D.
-                      </small>
-                    </>
-                  ) : (
-                    <>
-                      {" "}
-                      <small className="mx-4 max-w-xs pt-2 opacity-80">
-                        Sign-in is currently not working. If you have any
-                        inquiries, please contact GodderE2D.{" "}
-                        <a
-                          href="https://github.com/GodderE2D/godder.xyz/issues/3"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="link"
-                        >
-                          See GitHub issue.
-                        </a>
-                      </small>
-                      <small className="mx-4 max-w-xs py-2 opacity-80">
-                        <a className="link" onClick={() => setBypass(true)}>
-                          Developer bypass
-                        </a>
-                      </small>
-                    </>
-                  )}
+                          );
+
+                          setLoggingIn(false);
+                          window.localStorage.removeItem("need-login-reload");
+                        }
+                      }}
+                    >
+                      <LogoDiscord cssClasses="mr-2" />
+                      Login with Discord
+                    </a>
+                  </li>
+                  <small className="mx-4 max-w-xs py-2 opacity-80">
+                    Note: If you have signed up on Godder.xyz{" "}
+                    <strong>before 27/5/22</strong>, your account has been
+                    deleted due to the OAuth app being linked to the old Discord
+                    account. You are encouraged to create a new account. If you
+                    have any inquiries, please contact GodderE2D.
+                  </small>
                 </ul>
               </div>
             )}

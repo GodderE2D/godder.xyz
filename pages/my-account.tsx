@@ -48,10 +48,15 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isCheckboxTicked, setCheckboxTicked] = useState(false);
 
-  const username = supabase.auth.user()?.user_metadata.preferred_username;
+  const username = supabase.auth.user()?.user_metadata.full_name;
   const email = supabase.auth.user()?.email;
   const accountId = supabase.auth.user()?.id;
-  const githubId = supabase.auth.user()?.user_metadata.provider_id;
+  const githubId = supabase.auth
+    .user()
+    ?.identities?.find((i) => i.provider === "github")?.id;
+  const discordId = supabase.auth
+    .user()
+    ?.identities?.find((i) => i.provider === "discord")?.id;
 
   return (
     <div>
@@ -114,7 +119,19 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </label>
             <input
               type="text"
-              value={githubId}
+              value={githubId ?? "GitHub Account Not Linked"}
+              readOnly
+              className="input input-bordered w-2/5"
+            />
+
+            <div className="h-3" />
+
+            <label className="label">
+              <span className="label-text">Discord ID</span>
+            </label>
+            <input
+              type="text"
+              value={discordId ?? "Discord Account Not Linked"}
               readOnly
               className="input input-bordered w-2/5"
             />
