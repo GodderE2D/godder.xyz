@@ -113,7 +113,7 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
               <br />
               <br />
               From Australia, I{"'"}m just a random person you meet here and
-              there on the internet. I{"'"}m also developer but I kind of suck
+              there on the internet. I{"'"}m also a full-stack developer but I kind of suck
               at that. I usually spend my free time playing video games, on
               Discord, or casually on the internet on one of my social
               platforms. You can find my projects on my Resources page, which is
