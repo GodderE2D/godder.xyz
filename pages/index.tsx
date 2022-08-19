@@ -59,20 +59,20 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
         <meta
           name="description"
           content={
-            "I'm just a not-so-ordinary human being on the internet.\nNice to meet you!\n\nFrom Australia, I'm just a random person you meet here and there on the internet. I'm also developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually on the internet on one of my social platforms. You can find my projects on my Resources page, which is linked below."
+            "I'm just a not-so-ordinary human being on the internet. Nice to meet you!\n\nFrom Australia but currently living in the U.S., I'm your second-least-favourite person online. I'm also a full-stack web/game/Discord bot developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually chilling in my room thinking about the wonders of the universe. You can find all sorts of my projects on my Resources page, which you can see below."
           }
         />
         <meta
           property="og:description"
           content={
-            "I'm just a not-so-ordinary human being on the internet.\nNice to meet you!\n\nFrom Australia, I'm just a random person you meet here and there on the internet. I'm also developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually on the internet on one of my social platforms. You can find my projects on my Resources page, which is linked below."
+            "I'm just a not-so-ordinary human being on the internet. Nice to meet you!\n\nFrom Australia but currently living in the U.S., I'm your second-least-favourite person online. I'm also a full-stack web/game/Discord bot developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually chilling in my room thinking about the wonders of the universe. You can find all sorts of my projects on my Resources page, which you can see below."
           }
         />
         <meta itemProp="name" content="GodderE2D" />
         <meta
           itemProp="description"
           content={
-            "I'm just a not-so-ordinary human being on the internet.\nNice to meet you!\n\nFrom Australia, I'm just a random person you meet here and there on the internet. I'm also developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually on the internet on one of my social platforms. You can find my projects on my Resources page, which is linked below."
+            "I'm just a not-so-ordinary human being on the internet. Nice to meet you!\n\nFrom Australia but currently living in the U.S., I'm your second-least-favourite person online. I'm also a full-stack web/game/Discord bot developer but I kind of suck at that. I usually spend my free time playing video games, on Discord, or casually chilling in my room thinking about the wonders of the universe. You can find all sorts of my projects on my Resources page, which you can see below."
           }
         />
         <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
@@ -107,17 +107,17 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
             </h1>
 
             <p className="mb-5 max-w-xl">
-              I{"'"}m just a not-so-ordinary human being on the internet.
+              I{"'"}m just a not-so-ordinary human being on the internet. Nice
+              to meet you!
               <br />
-              Nice to meet you!
               <br />
-              <br />
-              From Australia, I{"'"}m just a random person you meet here and
-              there on the internet. I{"'"}m also a full-stack developer but I kind of suck
-              at that. I usually spend my free time playing video games, on
-              Discord, or casually on the internet on one of my social
-              platforms. You can find my projects on my Resources page, which is
-              linked below.
+              From Australia but currently living in the U.S., I{"'"}m your
+              second-least-favourite person online. I{"'"}m also a full-stack
+              web/game/Discord bot developer but I kind of suck at that. I
+              usually spend my free time playing video games, on Discord, or
+              casually chilling in my room thinking about the wonders of the
+              universe. You can find all sorts of my projects on my Resources
+              page, which you can see below.
             </p>
 
             <div className="h-8" />
