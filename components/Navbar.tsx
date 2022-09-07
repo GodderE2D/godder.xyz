@@ -430,7 +430,7 @@ const Home = () => {
               </div>
             ) : (
               <div className="dropdown dropdown-end">
-                <button
+                <div
                   tabIndex={0}
                   className={`btn btn-ghost rounded-btn m-1 ${
                     (isLoggingIn || isSigningOut) && "loading"
@@ -444,7 +444,7 @@ const Home = () => {
                     : isLoggingIn
                     ? "Logging in..."
                     : "Login"}
-                </button>
+                </div>
                 <ul
                   tabIndex={0}
                   className="dropdown-content menu rounded-box w-max bg-base-100 p-2 text-base-content shadow"
