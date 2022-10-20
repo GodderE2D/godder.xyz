@@ -53,7 +53,14 @@ const Footer = ({
               <div className="my-2 h-px w-full bg-base-200" />
               <div className="w-full rounded-lg bg-pink-200 p-3">
                 <div className="mb-2 font-bold">
-                  💚 Thank you to my generous sponsors:
+                  <a
+                    className="link link-hover"
+                    href="https://github.com/sponsors/GodderE2D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    💚 Thank you to my generous sponsors:
+                  </a>
                 </div>
                 <div>
                   {sponsorsData.user.sponsors.edges.map(({ node: sponsor }) => (

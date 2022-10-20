@@ -185,7 +185,7 @@ const Home: NextPage<{
                   <div className="mb-2 font-bold">
                     <a
                       className="link link-hover"
-                      href="https://github.com/GodderE2D/sponsors"
+                      href="https://github.com/sponsors/GodderE2D"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
