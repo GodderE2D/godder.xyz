@@ -13,6 +13,8 @@ import { evaluateSync } from "@mdx-js/mdx";
 import runtime from "react/jsx-runtime";
 import { useRouter } from "next/router";
 import { pageview } from "../../utils/ga";
+import apolloClient, { SponsorsResponse } from "../../utils/apolloClient";
+import { gql } from "@apollo/client";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -48,10 +50,52 @@ export const getServerSideProps: GetServerSideProps<{
   let newLatestData = latestData;
   if (latestError) newLatestData = null;
 
+  let sponsorsData = null;
+  if (apolloClient) {
+    if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
+      const { data } = await apolloClient.query({
+        query: gql`
+          {
+            user(login: "${process.env.NEXT_PUBLIC_GITHUB_USERNAME}") {
+              sponsors(first: 100) {
+                edges {
+                  node {
+                    ... on User {
+                      id
+                      avatarUrl
+                      url
+                      name
+                      login
+                      sponsorshipsAsSponsor(first: 100) {
+                        nodes {
+                          createdAt
+                          sponsorable {
+                            ... on User {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      });
+
+      if (data.user) {
+        sponsorsData = data as SponsorsResponse;
+      }
+    }
+  }
+
   return {
     props: {
       blogData: data[0],
       latestBlogData: newLatestData,
+      sponsorsData,
     },
   };
 };
@@ -59,7 +103,8 @@ export const getServerSideProps: GetServerSideProps<{
 const BlogPage: NextPage<{
   blogData: BlogsType;
   latestBlogData: BlogsType | null;
-}> = ({ blogData, latestBlogData }) => {
+  sponsorsData: SponsorsResponse | null;
+}> = ({ blogData, latestBlogData, sponsorsData }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -108,7 +153,7 @@ const BlogPage: NextPage<{
 
       <div className="mx-4 md:mx-12 lg:mx-36">
         <div className="mx-4 text-left">
-          <div className="dropdown dropdown-end float-right">
+          <div className="dropdown-end dropdown float-right">
             <div tabIndex={0} className="btn btn-ghost m-1">
               <EllipsisHorizontal />
             </div>
@@ -290,7 +335,7 @@ const BlogPage: NextPage<{
         </div>
       </div>
 
-      <Footer blogData={latestBlogData} />
+      <Footer blogData={latestBlogData} sponsorsData={sponsorsData} />
     </div>
   );
 };

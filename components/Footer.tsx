@@ -58,14 +58,6 @@ const Footer = ({
                 <div>
                   {sponsorsData.user.sponsors.edges.map(({ node: sponsor }) => (
                     <div className="flex max-h-fit max-w-fit" key={sponsor.id}>
-                      {console.log(process.env.NEXT_PUBLIC_GITHUB_USERNAME)}
-                      {console.log(
-                        sponsor.sponsorshipsAsSponsor.nodes.find(
-                          (s) =>
-                            s.sponsorable.login ===
-                            process.env.NEXT_PUBLIC_GITHUB_USERNAME
-                        )
-                      )}
                       <img
                         className="h-8 w-8 rounded-full"
                         src={sponsor.avatarUrl}

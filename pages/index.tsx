@@ -27,9 +27,7 @@ export const getServerSideProps: GetServerSideProps<{
 
   let sponsorsData = null;
   if (apolloClient) {
-    console.log("YES APOLLO CLIENT");
     if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
-      console.log("YES GITHUB USERNAMAE");
       const { data } = await apolloClient.query({
         query: gql`
           {
@@ -62,7 +60,6 @@ export const getServerSideProps: GetServerSideProps<{
         `,
       });
 
-      console.log(data);
       if (data.user) {
         sponsorsData = data as SponsorsResponse;
       }

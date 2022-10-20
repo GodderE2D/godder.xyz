@@ -10,6 +10,8 @@ import { BlogsType } from "../../types/supabase";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import { pageview } from "../../utils/ga";
+import apolloClient, { SponsorsResponse } from "../../utils/apolloClient";
+import { gql } from "@apollo/client";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -33,14 +35,59 @@ export const getServerSideProps: GetServerSideProps<{
 
   if (error) throw error;
 
+  let sponsorsData = null;
+  if (apolloClient) {
+    if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
+      const { data } = await apolloClient.query({
+        query: gql`
+          {
+            user(login: "${process.env.NEXT_PUBLIC_GITHUB_USERNAME}") {
+              sponsors(first: 100) {
+                edges {
+                  node {
+                    ... on User {
+                      id
+                      avatarUrl
+                      url
+                      name
+                      login
+                      sponsorshipsAsSponsor(first: 100) {
+                        nodes {
+                          createdAt
+                          sponsorable {
+                            ... on User {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      });
+
+      if (data.user) {
+        sponsorsData = data as SponsorsResponse;
+      }
+    }
+  }
+
   return {
     props: {
       rawBlogsData: data || [],
+      sponsorsData,
     },
   };
 };
 
-const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
+const Blog: NextPage<{
+  rawBlogsData: BlogsType[];
+  sponsorsData: SponsorsResponse | null;
+}> = ({ rawBlogsData, sponsorsData }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -177,7 +224,7 @@ const Blog: NextPage<{ rawBlogsData: BlogsType[] }> = ({ rawBlogsData }) => {
         </div>
       </div>
 
-      <Footer blogData={blogsData[0]} />
+      <Footer blogData={blogsData[0]} sponsorsData={sponsorsData} />
     </div>
   );
 };

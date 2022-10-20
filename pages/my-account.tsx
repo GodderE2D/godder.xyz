@@ -8,6 +8,8 @@ import { supabase } from "../utils/supabaseClient";
 import { BlogsType } from "../types/supabase";
 import { useRouter } from "next/router";
 import { pageview } from "../utils/ga";
+import apolloClient, { SponsorsResponse } from "../utils/apolloClient";
+import { gql } from "@apollo/client";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -20,14 +22,59 @@ export const getServerSideProps: GetServerSideProps<{
 
   if (error) throw error;
 
+  let sponsorsData = null;
+  if (apolloClient) {
+    if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
+      const { data } = await apolloClient.query({
+        query: gql`
+          {
+            user(login: "${process.env.NEXT_PUBLIC_GITHUB_USERNAME}") {
+              sponsors(first: 100) {
+                edges {
+                  node {
+                    ... on User {
+                      id
+                      avatarUrl
+                      url
+                      name
+                      login
+                      sponsorshipsAsSponsor(first: 100) {
+                        nodes {
+                          createdAt
+                          sponsorable {
+                            ... on User {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      });
+
+      if (data.user) {
+        sponsorsData = data as SponsorsResponse;
+      }
+    }
+  }
+
   return {
     props: {
       blogData: data?.[0] ?? null,
+      sponsorsData,
     },
   };
 };
 
-const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+const MyAccount: NextPage<{
+  blogData: BlogsType | null;
+  sponsorsData: SponsorsResponse | null;
+}> = ({ blogData, sponsorsData }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -208,7 +255,7 @@ const MyAccount: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
         )}
       </div>
 
-      <Footer blogData={blogData} />
+      <Footer blogData={blogData} sponsorsData={sponsorsData} />
     </div>
   );
 };

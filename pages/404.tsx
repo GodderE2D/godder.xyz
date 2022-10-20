@@ -9,6 +9,8 @@ import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
 import { useRouter } from "next/router";
 import { pageview } from "../utils/ga";
+import apolloClient, { SponsorsResponse } from "../utils/apolloClient";
+import { gql } from "@apollo/client";
 
 const NotFound: NextPage = () => {
   const router = useRouter();
@@ -29,6 +31,9 @@ const NotFound: NextPage = () => {
   }, [router.events]);
 
   const [latestBlog, setLatestBlog] = useState<BlogsType | null>(null);
+  const [sponsorsData, setSponsorsData] = useState<SponsorsResponse | null>(
+    null
+  );
 
   useEffect(() => {
     (async () => {
@@ -44,6 +49,46 @@ const NotFound: NextPage = () => {
       }
 
       setLatestBlog(data?.[0] ?? null);
+
+      if (apolloClient) {
+        if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
+          const { data } = await apolloClient.query({
+            query: gql`
+              {
+                user(login: "${process.env.NEXT_PUBLIC_GITHUB_USERNAME}") {
+                  sponsors(first: 100) {
+                    edges {
+                      node {
+                        ... on User {
+                          id
+                          avatarUrl
+                          url
+                          name
+                          login
+                          sponsorshipsAsSponsor(first: 100) {
+                            nodes {
+                              createdAt
+                              sponsorable {
+                                ... on User {
+                                  login
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+          });
+
+          if (data.user) {
+            setSponsorsData(data as SponsorsResponse);
+          }
+        }
+      }
     })();
   });
 
@@ -108,7 +153,7 @@ const NotFound: NextPage = () => {
         </div>
       </div>
 
-      <Footer blogData={latestBlog} />
+      <Footer blogData={latestBlog} sponsorsData={sponsorsData} />
     </div>
   );
 };
