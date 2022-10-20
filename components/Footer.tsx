@@ -5,6 +5,7 @@ import { Eye, Heart } from "react-ionicons";
 import { BlogsType } from "../types/supabase";
 import dayjs from "dayjs";
 import logoRoundedSvg from "../public/logo-rounded.svg";
+import type { SponsorsResponse } from "../utils/apolloClient";
 
 const formatDate = (date: string | number | Date) =>
   dayjs(new Date(date)).format("dddd, MMMM D, YYYY");
@@ -17,13 +18,19 @@ const calculateReadTime = (content: string) => {
   return minutes;
 };
 
-const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
+const Footer = ({
+  blogData,
+  sponsorsData,
+}: {
+  blogData: BlogsType | null;
+  sponsorsData: SponsorsResponse | null;
+}) => {
   return (
     <div>
       <div className="h-20" />
 
       <footer className="footer bg-secondary-content p-10 text-base-content">
-        <div>
+        <div className="w-full">
           <div className="h-14 w-14">
             <Image src={logoRoundedSvg} alt="GodderE2D's Profile Picture" />
           </div>
@@ -41,19 +48,72 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
             target="_blank"
             rel="noreferrer"
           ></a>
+          {sponsorsData ? (
+            <>
+              <div className="my-2 h-px w-full bg-base-200" />
+              <div className="w-full rounded-lg bg-pink-200 p-3">
+                <div className="mb-2 font-bold">
+                  💚 Thank you to my generous sponsors:
+                </div>
+                <div>
+                  {sponsorsData.user.sponsors.edges.map(({ node: sponsor }) => (
+                    <div className="flex max-h-fit max-w-fit" key={sponsor.id}>
+                      {console.log(process.env.NEXT_PUBLIC_GITHUB_USERNAME)}
+                      {console.log(
+                        sponsor.sponsorshipsAsSponsor.nodes.find(
+                          (s) =>
+                            s.sponsorable.login ===
+                            process.env.NEXT_PUBLIC_GITHUB_USERNAME
+                        )
+                      )}
+                      <img
+                        className="h-8 w-8 rounded-full"
+                        src={sponsor.avatarUrl}
+                        alt={`${sponsor.login}'s GitHub avatar`}
+                      />
+                      <div className="ml-2 self-center">
+                        <a
+                          href={sponsor.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <div className="link link-hover text-sm font-semibold">
+                            {sponsor.login}
+                          </div>
+                        </a>
+                        <div className="text-xs opacity-80">{sponsor.name}</div>
+                        <div className="text-xs opacity-80">
+                          Sponsoring since{" "}
+                          {dayjs(
+                            sponsor.sponsorshipsAsSponsor.nodes.find(
+                              (s) =>
+                                s.sponsorable.login ===
+                                process.env.NEXT_PUBLIC_GITHUB_USERNAME
+                            )?.createdAt
+                          ).format("MMM D, YYYY")}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </div>
         <div>
           <span className="footer-title">Pages</span>
 
-          <div className="link-hover link">
+          <div className="link link-hover">
             <Link href="/">Home</Link>
           </div>
 
-          <div className="link-hover link">
+          <div className="link link-hover">
             <Link href="/resources">Resources</Link>
           </div>
 
-          <div className="link-hover link">
+          <div className="link link-hover">
             <a
               href="https://dsc.bio/godder"
               target="_blank"
@@ -63,7 +123,7 @@ const Footer = ({ blogData }: { blogData: BlogsType | null }) => {
             </a>
           </div>
 
-          <div className="link-hover link">
+          <div className="link link-hover">
             <Link href="/blog">Blog</Link>
           </div>
         </div>

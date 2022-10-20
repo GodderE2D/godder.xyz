@@ -9,6 +9,10 @@ import { BlogsType } from "../types/supabase";
 import { supabase } from "../utils/supabaseClient";
 import { useRouter } from "next/router";
 import { pageview } from "../utils/ga";
+import { gql } from "@apollo/client";
+import apolloClient from "../utils/apolloClient";
+import type { SponsorsResponse } from "../utils/apolloClient";
+import dayjs from "dayjs";
 
 export const getServerSideProps: GetServerSideProps<{
   blogData: BlogsType | null;
@@ -21,14 +25,62 @@ export const getServerSideProps: GetServerSideProps<{
 
   if (error) throw error;
 
+  let sponsorsData = null;
+  if (apolloClient) {
+    console.log("YES APOLLO CLIENT");
+    if (process.env.NEXT_PUBLIC_GITHUB_USERNAME) {
+      console.log("YES GITHUB USERNAMAE");
+      const { data } = await apolloClient.query({
+        query: gql`
+          {
+            user(login: "${process.env.NEXT_PUBLIC_GITHUB_USERNAME}") {
+              sponsors(first: 100) {
+                edges {
+                  node {
+                    ... on User {
+                      id
+                      avatarUrl
+                      url
+                      name
+                      login
+                      sponsorshipsAsSponsor(first: 100) {
+                        nodes {
+                          createdAt
+                          sponsorable {
+                            ... on User {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      });
+
+      console.log(data);
+      if (data.user) {
+        sponsorsData = data as SponsorsResponse;
+      }
+    }
+  }
+
   return {
     props: {
       blogData: data?.[0] ?? null,
+      sponsorsData,
     },
   };
 };
 
-const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
+const Home: NextPage<{
+  blogData: BlogsType | null;
+  sponsorsData: SponsorsResponse | null;
+}> = ({ blogData, sponsorsData }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -130,11 +182,77 @@ const Home: NextPage<{ blogData: BlogsType | null }> = ({ blogData }) => {
                 </span>
               </div>
             </Link>
+            {sponsorsData ? (
+              <>
+                <div className="mt-6 w-full rounded-lg bg-pink-200 p-3">
+                  <div className="mb-2 font-bold">
+                    <a
+                      className="link link-hover"
+                      href="https://github.com/GodderE2D/sponsors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      💚 Thank you to my generous sponsors:
+                    </a>
+                  </div>
+                  <div>
+                    {sponsorsData.user.sponsors.edges.map(
+                      ({ node: sponsor }) => (
+                        <div
+                          className="flex max-h-fit max-w-fit"
+                          key={sponsor.id}
+                        >
+                          {console.log(process.env.NEXT_PUBLIC_GITHUB_USERNAME)}
+                          {console.log(
+                            sponsor.sponsorshipsAsSponsor.nodes.find(
+                              (s) =>
+                                s.sponsorable.login ===
+                                process.env.NEXT_PUBLIC_GITHUB_USERNAME
+                            )
+                          )}
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src={sponsor.avatarUrl}
+                            alt={`${sponsor.login}'s GitHub avatar`}
+                          />
+                          <div className="ml-2 self-center">
+                            <a
+                              href={sponsor.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <div className="link link-hover text-sm font-semibold">
+                                {sponsor.login}
+                              </div>
+                            </a>
+                            <div className="text-xs opacity-80">
+                              {sponsor.name}
+                            </div>
+                            <div className="text-xs opacity-80">
+                              Sponsoring since{" "}
+                              {dayjs(
+                                sponsor.sponsorshipsAsSponsor.nodes.find(
+                                  (s) =>
+                                    s.sponsorable.login ===
+                                    process.env.NEXT_PUBLIC_GITHUB_USERNAME
+                                )?.createdAt
+                              ).format("MMM D, YYYY")}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
 
-      <Footer blogData={blogData} />
+      <Footer blogData={blogData} sponsorsData={sponsorsData} />
     </div>
   );
 };
