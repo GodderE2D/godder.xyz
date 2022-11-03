@@ -153,7 +153,7 @@ const BlogPage: NextPage<{
 
       <div className="mx-4 md:mx-12 lg:mx-36">
         <div className="mx-4 text-left">
-          <div className="dropdown-end dropdown float-right">
+          <div className="dropdown dropdown-end float-right">
             <div tabIndex={0} className="btn btn-ghost m-1">
               <EllipsisHorizontal />
             </div>

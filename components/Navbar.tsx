@@ -356,7 +356,7 @@ const Home = () => {
             className="flex-none lg:hidden xl:hidden 2xl:hidden"
             onClick={() => setIsActive(!isActive)}
           >
-            <span className="btn btn-square btn-ghost">
+            <span className="btn btn-ghost btn-square">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
