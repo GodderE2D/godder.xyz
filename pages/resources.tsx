@@ -292,7 +292,7 @@ const Resources: NextPage<{
 
               <li>
                 <a
-                  href="https://www.youtube.com/channel/UC4mQ0olYYYDeOlgSNKTnPcQ"
+                  href="https://www.youtube.com/@TheE2D"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

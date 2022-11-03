@@ -114,7 +114,7 @@ const Home = () => {
             </li>
             <li>
               <a
-                href="https://www.youtube.com/channel/UC4mQ0olYYYDeOlgSNKTnPcQ"
+                href="https://www.youtube.com/@TheE2D"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -253,7 +253,7 @@ const Home = () => {
               </li>
               <li>
                 <a
-                  href="https://www.youtube.com/channel/UC4mQ0olYYYDeOlgSNKTnPcQ"
+                  href="https://www.youtube.com/@TheE2D"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -356,7 +356,7 @@ const Home = () => {
             className="flex-none lg:hidden xl:hidden 2xl:hidden"
             onClick={() => setIsActive(!isActive)}
           >
-            <span className="btn btn-ghost btn-square">
+            <span className="btn btn-square btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
