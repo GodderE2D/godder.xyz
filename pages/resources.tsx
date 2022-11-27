@@ -336,13 +336,13 @@ const Resources: NextPage<{
 
               <li>
                 <a
-                  href="https://twitch.tv/GodderE2D"
+                  href="https://twitch.tv/azugodder"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Twitch
                 </a>
-                : GodderE2D
+                : AzuGodder
               </li>
 
               <li>
