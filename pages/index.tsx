@@ -179,7 +179,7 @@ const Home: NextPage<{
                 </span>
               </div>
             </Link>
-            {sponsorsData ? (
+            {sponsorsData?.user.sponsors.edges.length ? (
               <>
                 <div className="mt-6 w-full rounded-lg bg-pink-200 p-3">
                   <div className="mb-2 font-bold">
@@ -199,14 +199,6 @@ const Home: NextPage<{
                           className="flex max-h-fit max-w-fit"
                           key={sponsor.id}
                         >
-                          {console.log(process.env.NEXT_PUBLIC_GITHUB_USERNAME)}
-                          {console.log(
-                            sponsor.sponsorshipsAsSponsor.nodes.find(
-                              (s) =>
-                                s.sponsorable.login ===
-                                process.env.NEXT_PUBLIC_GITHUB_USERNAME
-                            )
-                          )}
                           <img
                             className="h-8 w-8 rounded-full"
                             src={sponsor.avatarUrl}

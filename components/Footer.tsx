@@ -48,7 +48,7 @@ const Footer = ({
             target="_blank"
             rel="noreferrer"
           ></a>
-          {sponsorsData ? (
+          {sponsorsData?.user.sponsors.edges.length ? (
             <>
               <div className="my-2 h-px w-full bg-base-200" />
               <div className="w-full rounded-lg bg-pink-200 p-3">
