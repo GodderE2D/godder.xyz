@@ -1,0 +1,59 @@
+"use client";
+
+import { useState } from "react";
+import { HiOutlineMail, HiMail } from "react-icons/hi";
+import { Modal } from "flowbite-react";
+
+export default function Email() {
+  const [openModal, setOpenModal] = useState(false);
+
+  return (
+    <>
+      <button
+        className="group col-span-1 row-span-2 cursor-pointer rounded-2xl bg-sky-950 p-6 shadow transition-all duration-500 hover:scale-95 md:p-8"
+        onClick={() => setOpenModal(true)}
+        aria-label="E-mail"
+      >
+        <div className="flex h-full items-center justify-center">
+          <HiOutlineMail className="h-12 w-12 transition-all duration-500 ease-out group-hover:h-16 group-hover:w-16 group-hover:animate-pulse" />
+        </div>
+      </button>
+      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+        <Modal.Header>
+          <div className="mt-1 flex items-center justify-center gap-2">
+            <HiMail className="h-5 w-5" />
+            <span>E-mail</span>
+          </div>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="prose prose-invert text-inherit">
+            If you wish to contact me through e-mail, you may do so through the following addresses:
+            <ul>
+              <li>
+                <a href="mailto:main@godder.xyz" target="_blank" rel="noopener noreferrer">
+                  main@godder.xyz
+                </a>
+              </li>
+              <li>
+                <a href="mailto:goddere2d@modslides.com" target="_blank" rel="noopener noreferrer">
+                  goddere2d@modslides.com
+                </a>
+              </li>
+              <li>
+                <a href="mailto:godderseesyou@gmail.com" target="_blank" rel="noopener noreferrer">
+                  godderseesyou@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="mailto:e2dbusiness@outlook.com" target="_blank" rel="noopener noreferrer">
+                  e2dbusiness@outlook.com
+                </a>{" "}
+                (YouTube contact only)
+              </li>
+            </ul>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
