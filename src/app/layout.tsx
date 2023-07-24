@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { inter } from "./fonts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         {children}
         <Footer commitSha={process.env.VERCEL_GIT_COMMIT_SHA} />
+        <Analytics />
       </body>
     </html>
   );
