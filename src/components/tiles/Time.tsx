@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 
-const TIMEZONE = "Asia/Shanghai" as const;
+const TIMEZONE = "America/New_York" as const;
 
 export default function Time() {
   const timezone = DateTime.now().setZone(TIMEZONE).toFormat("Z");
