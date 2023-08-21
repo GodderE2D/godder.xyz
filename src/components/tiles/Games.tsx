@@ -19,18 +19,18 @@ export default function Games() {
       <h2 className="mb-3 bg-gradient-to-tl from-teal-500 to-teal-300 bg-clip-text text-xl font-semibold text-transparent md:text-2xl">
         Games I (sometimes) play
       </h2>
-      {Object.entries(GAMES).map(([game, link]) =>
+      {Object.entries(GAMES).map(([game, link], i) =>
         link ? (
           <span key={game + link} className="text-sm md:text-base">
             <a href={link} className="font-medium text-white underline" target="_blank" rel="noopener noreferrer">
               {game}
             </a>
-            {game === "and more..." ? "" : ", "}
+            {i === Object.entries(GAMES).length - 1 ? "" : ", "}
           </span>
         ) : (
           <span key={game + link} className="text-sm md:text-base">
             {game}
-            {game === "and more..." ? "" : ", "}
+            {i === Object.entries(GAMES).length - 1 ? "" : ", "}
           </span>
         ),
       )}
