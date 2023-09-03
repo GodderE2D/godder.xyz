@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Tooltip from "../components/Tooltip";
+
 import Birthday from "../components/tiles/Birthday";
 import Email from "../components/tiles/Email";
 import Time from "../components/tiles/Time";
@@ -6,6 +8,10 @@ import Socials from "../components/tiles/Socials";
 import Games from "../components/tiles/Games";
 import Skills from "../components/tiles/Skills";
 import Projects from "../components/tiles/Projects";
+
+import flag_cn from "../../public/flags/flag_cn-1f1e8-1f1f3.svg";
+import flag_au from "../../public/flags/flag_au-1f1e6-1f1fa.svg";
+import flag_us from "../../public/flags/flag_us-1f1fa-1f1f8.svg";
 
 export default async function Home() {
   return (
@@ -16,17 +22,17 @@ export default async function Home() {
             <h1 className="mb-2 bg-gradient-to-tl from-green-500 via-blue-400 to-green-300 bg-300% bg-clip-text text-4xl font-bold text-transparent motion-safe:animate-gradient">
               Heya, I&apos;m Godder.
             </h1>
-            <div className="mb-1 flex items-center gap-1 text-xl">
+            <div className="mb-2 flex items-center gap-1 text-xl">
               <Tooltip id="cn" content="Shanghai, China">
-                🇨🇳
+                <Image src={flag_cn} alt="Chinese Flag" className="h-6 w-6" />
               </Tooltip>
               <span className="text-xs">➔</span>
               <Tooltip id="au" content="Sydney, Australia">
-                🇦🇺
+                <Image src={flag_au} alt="Australian Flag" className="h-6 w-6" />
               </Tooltip>
               <span className="text-xs">➔</span>
               <Tooltip id="us" content="Virginia, United States">
-                🇺🇸
+                <Image src={flag_us} alt="US Flag" className="h-6 w-6" />
               </Tooltip>
             </div>
             <p>
