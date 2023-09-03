@@ -36,5 +36,6 @@
     "@types/react-dom": "^18.2.7",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
