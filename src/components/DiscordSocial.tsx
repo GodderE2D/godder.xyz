@@ -44,8 +44,8 @@ export default function DiscordSocial() {
         />
       </button>
       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header>
-          <div className="mt-1 flex items-center justify-center gap-2">
+        <Modal.Header className="border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
+          <div className="mt-1 flex items-center justify-center gap-2 text-white">
             <SiDiscord className="h-5 w-5" />
             <span>Discord</span>
             <span className="flex items-center gap-1">
@@ -64,7 +64,7 @@ export default function DiscordSocial() {
             </span>
           </div>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="bg-gray-700">
           <div className="prose prose-invert text-inherit">
             Discord is by far the platform I&apos;m most active on and is my preferred method of contact online.
             <br />
