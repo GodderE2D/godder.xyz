@@ -35,8 +35,8 @@ export default function Email() {
                 </a>
               </li>
               <li>
-                <a href="mailto:goddere2d@modslides.com" target="_blank" rel="noopener noreferrer">
-                  goddere2d@modslides.com
+                <a href="mailto:goddere2d@bsr.gg" target="_blank" rel="noopener noreferrer">
+                  goddere2d@bsr.gg
                 </a>
               </li>
               <li>
