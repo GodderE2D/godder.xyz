@@ -13,7 +13,7 @@ export default function Birthday() {
   useEffect(() => {
     const now = DateTime.now().startOf("day");
 
-    const birthdayPassed = now.month > MONTH || now.day >= DAY;
+    const birthdayPassed = now.month >= MONTH && now.day >= DAY;
     const birthday = DateTime.fromObject({
       year: birthdayPassed ? now.year + 1 : now.year,
       month: MONTH,
@@ -24,7 +24,7 @@ export default function Birthday() {
   }, []);
 
   return (
-    <div className="group col-span-2 row-span-1 rounded-2xl bg-lime-950 p-4 text-center shadow md:col-span-1">
+    <div className="group col-span-2 row-span-1 rounded-xl bg-lime-950 p-4 text-center shadow md:col-span-1">
       <h2 className="mb-0.5 bg-gradient-to-tl from-lime-500 to-lime-300 bg-clip-text text-xl font-medium text-transparent md:mb-2">
         {days ? (days === 366 ? "Today" : `${days} day${days !== 1 ? "s" : ""}`) : "--"}
       </h2>

@@ -22,7 +22,7 @@ export default function Time() {
   }, [time]);
 
   return (
-    <div className="col-span-1 row-span-1 rounded-2xl bg-purple-950 p-4 text-center shadow">
+    <div className="col-span-1 row-span-1 rounded-xl bg-purple-950 p-4 text-center shadow">
       <h2 className="mb-0.5 h-7 bg-gradient-to-tl from-purple-500 to-purple-300 bg-clip-text text-xl font-medium text-transparent md:mb-2">
         {time || "--"}
       </h2>

@@ -15,25 +15,15 @@ const GAMES = {
 
 export default function Games() {
   return (
-    <div className="col-span-3 row-span-2 rounded-2xl bg-teal-950 p-6 shadow md:col-span-2 md:p-8">
-      <h2 className="mb-3 bg-gradient-to-tl from-teal-500 to-teal-300 bg-clip-text text-xl font-semibold text-transparent md:text-2xl">
-        Games I (sometimes) play
+    <div className="col-span-3 row-span-2 rounded-xl bg-teal-950 p-5 shadow md:col-span-2 md:p-7">
+      <h2 className="mb-2 bg-gradient-to-tl from-teal-500 to-teal-300 bg-clip-text text-lg font-extrabold text-transparent md:text-xl">
+        Me?
       </h2>
-      {Object.entries(GAMES).map(([game, link], i) =>
-        link ? (
-          <span key={game + link} className="text-sm md:text-base">
-            <a href={link} className="font-medium text-white underline" target="_blank" rel="noopener noreferrer">
-              {game}
-            </a>
-            {i === Object.entries(GAMES).length - 1 ? "" : ", "}
-          </span>
-        ) : (
-          <span key={game + link} className="text-sm md:text-base">
-            {game}
-            {i === Object.entries(GAMES).length - 1 ? "" : ", "}
-          </span>
-        ),
-      )}
+      <p>
+        I&apos;m living in Virginia, USA right now for school, but I was originally from Sydney, Australia. I usually
+        like to play games with my friends, writing, or travelling. I&apos;ve been to a few (12) countries in my short
+        lifespan.
+      </p>
     </div>
   );
 }

@@ -36,15 +36,15 @@ export default function DiscordSocial() {
             status === "online"
               ? "bg-green-500"
               : status === "idle"
-              ? "bg-amber-500"
-              : status === "dnd"
-              ? "bg-red-500"
-              : "bg-zinc-500"
+                ? "bg-amber-500"
+                : status === "dnd"
+                  ? "bg-red-500"
+                  : "bg-zinc-500"
           }`}
         />
       </button>
       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header className="border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
+        <Modal.Header className="rounded-t-md border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
           <div className="mt-1 flex items-center justify-center gap-2 text-white">
             <SiDiscord className="h-5 w-5" />
             <span>Discord</span>
@@ -54,22 +54,21 @@ export default function DiscordSocial() {
                   status === "online"
                     ? "bg-green-500"
                     : status === "idle"
-                    ? "bg-amber-500"
-                    : status === "dnd"
-                    ? "bg-red-500"
-                    : "bg-zinc-500"
+                      ? "bg-amber-500"
+                      : status === "dnd"
+                        ? "bg-red-500"
+                        : "bg-zinc-500"
                 }`}
               ></span>
-              <span className="mt-px text-xs font-medium">{STATUS_MAP[status ?? "unknown"]}</span>
+              <span className="mt-px text-xs font-normal">{STATUS_MAP[status ?? "unknown"]}</span>
             </span>
           </div>
         </Modal.Header>
-        <Modal.Body className="bg-gray-700">
+        <Modal.Body className="rounded-b-md bg-gray-700">
           <div className="prose prose-invert text-inherit">
             Discord is by far the platform I&apos;m most active on and is my preferred method of contact online.
             <br />
-            <br />
-            You can find me most active in the following servers as <strong>@thee2d</strong>:
+            You can find me most active in these servers as <strong>GodderE2D</strong> or <strong>@thee2d</strong>:
             <ul>
               <li>
                 <a href="https://discord.gg/R2FDvcPXTK" target="_blank" rel="noopener noreferrer">
@@ -82,8 +81,8 @@ export default function DiscordSocial() {
                 </a>
               </li>
               <li>
-                <a href="https://discord.gg/CaAE5chHXX" target="_blank" rel="noopener noreferrer">
-                  Tristan&apos;s Café
+                <a href="https://discord.gg/cyberstudents" target="_blank" rel="noopener noreferrer">
+                  CyberStudents
                 </a>
               </li>
               <li>

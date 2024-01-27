@@ -1,12 +1,12 @@
 export default function Projects() {
   return (
-    <div className="col-span-3 row-span-2 rounded-2xl bg-zinc-950 p-6 shadow md:p-8">
-      <h2 className="mb-3 bg-gradient-to-tl from-zinc-500 to-zinc-300 bg-clip-text text-xl font-semibold text-transparent md:text-2xl">
-        My projects and other stuff
+    <div className="col-span-3 row-span-2 rounded-2xl bg-zinc-950 p-5 shadow md:p-7">
+      <h2 className="mb-3 bg-gradient-to-tl from-zinc-500 to-zinc-300 bg-clip-text text-lg font-extrabold text-transparent md:text-xl">
+        My projects
       </h2>
       <div className="prose prose-sm prose-invert text-inherit md:prose-base">
         <p>
-          Whilst I&apos;m not{" "}
+          While I&apos;m not{" "}
           <a href="http://github.com/tristancamejo" target="_blank" rel="noopener noreferrer">
             Tristan
           </a>{" "}
@@ -15,28 +15,34 @@ export default function Projects() {
         </p>
         <ul>
           <li>
-            <a href="http://bsr.gg/" target="_blank" rel="noopener noreferrer">
-              Blue Shark River
-            </a>
-            , a technical Discord and Minecraft server (Fortalice SMP)
-          </li>
-          <li>
-            <a href="http://reindeer.bsr.gg/" target="_blank" rel="noopener noreferrer">
+            <a href="https://reindeer.bsr.gg/" target="_blank" rel="noopener noreferrer">
               Reindeer
             </a>
-            , a Discord bot for message and user reporting
+            : a reports/moderation/security Discord bot used in over 150 servers and protecting 60,000+ users
           </li>
           <li>
-            <a href="http://github.com/GodderE2D/octo" target="_blank" rel="noopener noreferrer">
-              Octo
+            <a href="https://discord.gg/R2FDvcPXTK" target="_blank" rel="noopener noreferrer">
+              Fortalice SMP
             </a>
-            , a Discord bot for moderation dedicated to BSR
+            : a Minecraft server with custom plugins and membership system
           </li>
           <li>
-            <a href="http://modslides.com" target="_blank" rel="noopener noreferrer">
-              Modslides
+            <a href="https://discord.gg/R2FDvcPXTK" target="_blank" rel="noopener noreferrer">
+              Blue Shark River
             </a>
-            , a website to discuss and learn online moderation
+            : an alliance for growing developer and gaming-oriented projects
+          </li>
+          <li>
+            <a href="https://tristansmp.com/" target="_blank" rel="noopener noreferrer">
+              Tristan SMP
+            </a>
+            : website for Tristan SMP with applications and a marketplace
+          </li>
+          <li>
+            <a href="https://github.com/Disploy/disploy" target="_blank" rel="noopener noreferrer">
+              Disploy
+            </a>
+            : guide and documentation for Disploy, a Discord API library
           </li>
         </ul>
         <p>

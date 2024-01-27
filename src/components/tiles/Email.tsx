@@ -10,7 +10,7 @@ export default function Email() {
   return (
     <>
       <button
-        className="group col-span-1 row-span-2 cursor-pointer rounded-2xl bg-sky-950 p-6 shadow transition-all duration-500 hover:scale-95 md:p-8"
+        className="group col-span-1 row-span-2 cursor-pointer rounded-xl bg-sky-950 p-6 shadow transition-all duration-500 hover:scale-95 md:p-8"
         onClick={() => setOpenModal(true)}
         aria-label="Email"
       >
@@ -19,15 +19,15 @@ export default function Email() {
         </div>
       </button>
       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header className="border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
+        <Modal.Header className="rounded-t-md border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
           <div className="mt-1 flex items-center justify-center gap-2 text-white">
             <HiMail className="h-5 w-5" />
             <span>Email</span>
           </div>
         </Modal.Header>
-        <Modal.Body className="bg-gray-700">
+        <Modal.Body className="rounded-b-md bg-gray-700">
           <div className="prose prose-invert text-inherit">
-            If you wish to contact me through e-mail, you may do so through the following addresses:
+            If you wish to contact me through e-mail for some reason, well here it is:
             <ul>
               <li>
                 <a href="mailto:main@godder.xyz" target="_blank" rel="noopener noreferrer">
