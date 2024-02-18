@@ -1,12 +1,13 @@
+import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { getPosts } from "../../app/blog/get-posts";
 import Link from "next/link";
 import { HiArrowUpRight } from "react-icons/hi2";
+import { BlogTileDays } from "../BlogTileDays";
 
 export default async function Blog() {
   const posts = await getPosts();
-
-  const days = Math.abs(Math.floor(DateTime.fromISO(posts[0].meta.date).diffNow("days").days));
+  const postDate = posts[0].meta.date;
 
   return (
     <Link
@@ -21,8 +22,8 @@ export default async function Blog() {
           <HiArrowUpRight className="h-5 w-5 stroke-1 opacity-80 transition-all group-hover:opacity-100" />
         </div>
         <div className="flex flex-col gap-2">
-          It&apos;s been {days} days since my last post. But if you want to check them out, they&apos;re usually about
-          technology, whether that be Discord, programming, or cyber.
+          It&apos;s been <BlogTileDays postDate={postDate} /> days since my last post. But if you want to check them
+          out, they&apos;re usually about technology, whether that be Discord, programming, or cyber.
         </div>
       </div>
     </Link>
