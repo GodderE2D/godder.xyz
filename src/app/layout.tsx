@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   ),
   title: "GodderE2D",
   description:
-    "Hello, internet stranger! I'm a developer and student with interests in web dev, Discord bots, and technical Minecraft. I play some video games like VALORANT and Minecraft in my free time. You can mostly find me on Discord.",
+    "Hello, internet stranger! I'm a developer and student with interests in web dev, cybersecurity, Discord bots, and technical Minecraft. I play games like Fortnite, Minecraft, and VALORANT in my free time. You can mostly find me on Discord.",
   icons: ["/logo-rounded.png"],
   openGraph: {
     type: "website",

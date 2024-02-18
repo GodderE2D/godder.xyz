@@ -5,7 +5,7 @@ import Social from "../Social";
 export default function Socials() {
   return (
     <div className="col-span-3 row-span-2 rounded-xl bg-blue-950 p-5 shadow md:p-7">
-      <h2 className="mb-2 bg-gradient-to-tl from-blue-500 to-blue-300 bg-clip-text text-2xl font-extrabold text-transparent md:text-3xl">
+      <h2 className="mb-2 bg-gradient-to-tl from-blue-500 to-blue-300 bg-clip-text text-xl font-extrabold text-transparent md:text-2xl">
         Socials
       </h2>
       <p className="mb-4">If you find me somewhere else, well it&apos;s probably still me…</p>

@@ -5,7 +5,7 @@ import Birthday from "../components/tiles/Birthday";
 import Email from "../components/tiles/Email";
 import Time from "../components/tiles/Time";
 import Socials from "../components/tiles/Socials";
-import Games from "../components/tiles/Games";
+import Blog from "../components/tiles/Blog";
 import Skills from "../components/tiles/Skills";
 import Projects from "../components/tiles/Projects";
 import IRLAlert from "../components/IRLAlert";
@@ -43,7 +43,7 @@ export default async function Home() {
             </p>
           </div>
           <Socials />
-          <Games />
+          <Blog />
           <Time />
           <Birthday />
           <Email />

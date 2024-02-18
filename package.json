@@ -11,9 +11,11 @@
   "dependencies": {
     "@markdoc/markdoc": "^0.4.0",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/canvas-confetti": "^1.6.4",
     "@types/react": "18.2.48",
     "@vercel/analytics": "^1.1.2",
     "autoprefixer": "10.4.17",
+    "canvas-confetti": "^1.9.2",
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
     "flowbite": "^2.2.1",
