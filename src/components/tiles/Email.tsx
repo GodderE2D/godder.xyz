@@ -27,13 +27,8 @@ export default function Email() {
         </Modal.Header>
         <Modal.Body className="rounded-b-md bg-gray-700">
           <div className="prose prose-invert text-inherit">
-            If you wish to contact me through e-mail for some reason, well here it is:
+            If you wish to contact me through email for some reason, well here it is:
             <ul>
-              <li>
-                <a href="mailto:main@godder.xyz" target="_blank" rel="noopener noreferrer">
-                  main@godder.xyz
-                </a>
-              </li>
               <li>
                 <a href="mailto:goddere2d@bsr.gg" target="_blank" rel="noopener noreferrer">
                   goddere2d@bsr.gg
