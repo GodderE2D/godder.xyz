@@ -25,8 +25,8 @@ PCPartPicker Link: [https://pcpartpicker.com/list/HLfJDq](https://pcpartpicker.c
 
 - Acer Nitro 5 Laptop AN515-55 (2020)
 - M2 15" Macbook Air with 8GB RAM, 500GB Storage (2023)
-- iPhone 12 with 128GB Storage (2020)
+- iPhone 15 Pro with 128GB Storage (2023)
 
 ---
 
-And that's hopefully all that you needed to know.
+And that's hopefully all that you need to know.
