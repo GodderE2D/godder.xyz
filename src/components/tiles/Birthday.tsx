@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import confetti from "canvas-confetti";
 
-// You have to change the human-friendly date on line 82 too
+// You have to change the human-friendly date on line 86 too
 const MONTH = 5 as const;
 const DAY = 7 as const;
 
 export default function Birthday() {
   const [days, setDays] = useState<number>();
+  const [isBirthday, setIsBirthday] = useState(false);
 
   useEffect(() => {
     const now = DateTime.now().startOf("day");
@@ -24,7 +25,10 @@ export default function Birthday() {
     const diffDays = birthday.diff(now, "days").days;
     setDays(diffDays);
 
-    if (diffDays === 366) showConfetti();
+    if (now.month === MONTH && now.day === DAY) {
+      setIsBirthday(true);
+      showConfetti();
+    }
   }, []);
 
   function showConfetti() {
@@ -67,13 +71,13 @@ export default function Birthday() {
 
   return (
     <div
-      className={`group col-span-2 row-span-1 rounded-xl bg-lime-950 p-4 text-center shadow md:col-span-1 ${days === 366 ? "bg-gradient-to-tl from-lime-950 via-lime-800 to-lime-700 bg-300% px-6 py-4 duration-75 motion-safe:animate-gradient" : ""}`}
-      onClick={() => days === 366 && showConfetti()}
+      className={`group col-span-2 row-span-1 rounded-xl bg-lime-950 p-4 text-center shadow md:col-span-1 ${isBirthday ? "cursor-pointer bg-gradient-to-tl from-lime-950 via-lime-800 to-lime-700 bg-300% px-6 py-4 duration-75 motion-safe:animate-gradient" : ""}`}
+      onClick={() => isBirthday && showConfetti()}
     >
       <h2 className="mb-0.5 bg-gradient-to-tl from-lime-500 to-lime-300 bg-clip-text text-xl font-medium text-transparent md:mb-2">
-        {days ? (days === 366 ? "Today" : `${days} day${days !== 1 ? "s" : ""}`) : "--"}
+        {days ? (isBirthday ? "Today" : `${days} day${days !== 1 ? "s" : ""}`) : "--"}
       </h2>
-      {days === 366 ? (
+      {isBirthday ? (
         <p className="text-xs">is my birthday! 🎉</p>
       ) : (
         <>
