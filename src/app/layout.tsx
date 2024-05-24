@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { inter, roboto } from "./fonts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import IRLAlert from "../components/IRLAlert";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta itemProp="imageUrl" content="/logo-rounded.png" />
       </head>
       <body className={`${inter.className} ${roboto.className} bg-zinc-900 text-zinc-300`}>
+        <IRLAlert />
         <Navbar />
         {children}
         <Footer commitSha={process.env.VERCEL_GIT_COMMIT_SHA} />

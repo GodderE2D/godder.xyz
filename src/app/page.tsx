@@ -8,7 +8,6 @@ import Socials from "../components/tiles/Socials";
 import Blog from "../components/tiles/Blog";
 import Skills from "../components/tiles/Skills";
 import Projects from "../components/tiles/Projects";
-import IRLAlert from "../components/IRLAlert";
 
 import flag_cn from "../../public/flags/flag_cn-1f1e8-1f1f3.svg";
 import flag_au from "../../public/flags/flag_au-1f1e6-1f1fa.svg";
@@ -17,7 +16,7 @@ import flag_us from "../../public/flags/flag_us-1f1fa-1f1f8.svg";
 export default async function Home() {
   return (
     <main>
-      <div className="mx-4 flex items-center justify-center">
+      <div className="mx-4 flex justify-center">
         <div className="grid max-w-prose grid-cols-3 grid-rows-2 gap-3 md:gap-6">
           <div className="col-span-3 row-span-2 mb-4 pt-8">
             <h1 className="mb-2 bg-gradient-to-tl from-green-500 via-blue-400 to-green-300 bg-300% bg-clip-text text-4xl font-extrabold text-transparent motion-safe:animate-gradient">
