@@ -21,7 +21,7 @@ export default async function Home() {
         <div className="grid max-w-prose grid-cols-3 grid-rows-2 gap-3 md:gap-6">
           <div className="col-span-3 row-span-2 mb-4 pt-8">
             <h1 className="mb-2 bg-gradient-to-tl from-green-500 via-blue-400 to-green-300 bg-300% bg-clip-text text-4xl font-extrabold text-transparent motion-safe:animate-gradient">
-              Heya, I&apos;m Godder.
+              Heya, I&apos;m ZuZu.
             </h1>
             <div className="mb-4 flex items-center gap-1 text-xl">
               <Tooltip content="Shanghai, China">
@@ -39,7 +39,7 @@ export default async function Home() {
             <p>
               Hello, internet stranger! I&apos;m a developer and student with interests in web dev, cybersecurity,
               Discord bots, and technical Minecraft. I play games like Fortnite, Minecraft, and VALORANT in my free
-              time. You can mostly find me on Discord.
+              time. You can mostly find me on Discord. I am the owner of CyberStudents.
             </p>
           </div>
           <Socials />
