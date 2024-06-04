@@ -15,7 +15,7 @@ export default function Birthday() {
   useEffect(() => {
     const now = DateTime.now().startOf("day");
 
-    const birthdayPassed = now.month >= MONTH && now.day >= DAY;
+    const birthdayPassed = now.month > MONTH || (now.month === MONTH && now.day >= DAY);
     const birthday = DateTime.fromObject({
       year: birthdayPassed ? now.year + 1 : now.year,
       month: MONTH,
