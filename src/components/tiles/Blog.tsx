@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { getPosts } from "../../app/blog/get-posts";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { BlogTileDays } from "../BlogTileDays";
 
@@ -16,7 +16,7 @@ export default async function Blog() {
     >
       <div>
         <div className="mb-2 flex w-full items-center justify-between">
-          <h2 className="bg-gradient-to-tl from-teal-500 to-teal-300 bg-clip-text text-lg font-extrabold text-transparent md:text-xl">
+          <h2 className="bg-gradient-to-tl from-teal-500 to-teal-300 bg-clip-text text-xl font-extrabold text-transparent">
             Blog
           </h2>
           <HiArrowUpRight className="h-5 w-5 stroke-1 opacity-80 transition-all group-hover:opacity-100" />

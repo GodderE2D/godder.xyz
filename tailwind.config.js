@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require("flowbite"),
+    // require("flowbite"),
     // require("daisyui")
   ],
   // daisyui: {},

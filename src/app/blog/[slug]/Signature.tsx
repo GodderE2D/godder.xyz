@@ -1,5 +1,5 @@
 import { HTMLProps } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 import logoRounded from "../../../../public/logo-rounded.svg";
 

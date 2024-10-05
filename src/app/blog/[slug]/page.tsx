@@ -1,6 +1,6 @@
 import { getPosts } from "../get-posts";
 import { DateTime } from "luxon";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Signature from "./Signature";
 import renderToStaticMarkup from "../render-to-static-markup";
 import Article from "./Article";

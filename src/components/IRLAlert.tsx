@@ -19,9 +19,7 @@ export default function IRLAlert() {
     <>
       <div className="fixed inset-x-0 left-0 right-0 top-0 mx-auto">
         <div className="flex items-center justify-center gap-2 bg-amber-600 bg-opacity-90 px-4 py-2 text-sm text-zinc-300">
-          <span className="text-left">
-            It appears that you know me in-person; please be considerate of my online privacy.
-          </span>
+          <span className="text-left">If you know me in-person, no you don&apos;t 🫡</span>
           <span
             onClick={() => setOpenModal(true)}
             className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full hover:bg-amber-700"
@@ -41,13 +39,9 @@ export default function IRLAlert() {
           <p className="mb-2">
             Your IP address indicates that you are connected to a network associated with my school.
           </p>
-          <p className="mb-2">
+          <p className="mb-6">
             If you know me in-person, please be considerate of my online privacy and do not share any personal
             information about me that I haven&apos;t made public without my consent.
-          </p>
-          <p className="mb-6">
-            Please don&apos;t blame me for any consequences that may arise from your actions, even if you find it funny
-            👍
           </p>
           <p>Your IP address: {data.result.ip}</p>
           <p className="mb-2">Your ISP organisation: {data.result.connection.org}</p>
