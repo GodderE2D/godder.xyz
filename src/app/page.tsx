@@ -36,9 +36,8 @@ export default async function Home() {
               </Tooltip>
             </div>
             <p>
-              Hello, internet stranger! I&apos;m a developer and student with interests in web dev, cybersecurity,
-              Discord bots, and technical Minecraft. I play games like Fortnite, Minecraft, and VALORANT in my free
-              time. You can mostly find me on Discord.
+              Sometimes a developer of web dev or Discord bots—sometimes technical Minecraft or cybersecurity.
+              Occasionally, I like to play Fortnite, Minecraft, or VALORANT. You can mostly find me on Discord online.
             </p>
           </div>
           <Socials />

@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import IRLAlert from "../components/IRLAlert";
 import { Analytics } from "@vercel/analytics/react";
+import { ViewTransitions } from "next-view-transitions";
+import { Advertisements } from "../components/Advertisements";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -26,19 +28,22 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
-        <meta itemProp="image" content="/logo-rounded.png" />
-        <meta itemProp="imageUrl" content="/logo-rounded.png" />
-      </head>
-      <body className={`${inter.className} ${roboto.className} bg-zinc-900 text-zinc-300`}>
-        <IRLAlert />
-        <Navbar />
-        {children}
-        <Footer commitSha={process.env.VERCEL_GIT_COMMIT_SHA} />
-        <Analytics />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <head>
+          <meta itemProp="thumbnailUrl" content="/logo-rounded.png" />
+          <meta itemProp="image" content="/logo-rounded.png" />
+          <meta itemProp="imageUrl" content="/logo-rounded.png" />
+        </head>
+        <body className={`${inter.className} ${roboto.className} bg-zinc-900 text-zinc-300`}>
+          <IRLAlert />
+          <Navbar />
+          {/* <Advertisements /> */}
+          {children}
+          <Footer commitSha={process.env.VERCEL_GIT_COMMIT_SHA} />
+          <Analytics />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

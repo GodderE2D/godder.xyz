@@ -18,7 +18,7 @@ export default function Email() {
           <HiOutlineMail className="h-12 w-12 transition-all duration-500 ease-out group-hover:h-16 group-hover:w-16 group-hover:animate-pulse" />
         </div>
       </button>
-      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)} className="">
         <Modal.Header className="rounded-t-md border-gray-600 bg-gray-700 hover:[&>button]:bg-gray-600 hover:[&>button]:text-white">
           <div className="mt-1 flex items-center justify-center gap-2 text-white">
             <HiMail className="h-5 w-5" />
@@ -43,7 +43,7 @@ export default function Email() {
                 <a href="mailto:e2dbusiness@outlook.com" target="_blank" rel="noopener noreferrer">
                   e2dbusiness@outlook.com
                 </a>{" "}
-                (YouTube contact only)
+                (for YouTube business inquiries)
               </li>
             </ul>
           </div>

@@ -72,17 +72,18 @@ export default function DiscordSocial() {
             <ul>
               <li>
                 <a href="https://discord.gg/R2FDvcPXTK" target="_blank" rel="noopener noreferrer">
-                  Blue Shark River (my server)
-                </a>
-              </li>
-              <li>
-                <a href="https://discord.gg/djs" target="_blank" rel="noopener noreferrer">
-                  discord.js
-                </a>
+                  Blue Shark River
+                </a>{" "}
+                (my server)
               </li>
               <li>
                 <a href="https://discord.gg/cyberstudents" target="_blank" rel="noopener noreferrer">
                   CyberStudents
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.gg/djs" target="_blank" rel="noopener noreferrer">
+                  Discord.js
                 </a>
               </li>
               <li>

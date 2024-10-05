@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 
 const PATHS = {
@@ -18,7 +18,7 @@ export default function Navbar() {
           <Link
             key={path + name}
             href={path}
-            className={`float-right ${pathname === path ? "font-semibold" : "underline"}`}
+            className={`float-right ${pathname === path ? "font-semibold" : "underline hover:text-zinc-300"}`}
           >
             {name}
           </Link>

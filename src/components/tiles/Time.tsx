@@ -10,12 +10,12 @@ export default function Time() {
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    setTime(DateTime.now().setZone(TIMEZONE).toFormat("T"));
+    setTime(DateTime.now().setZone(TIMEZONE).toFormat("t", { locale: "en-AU" }));
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(DateTime.now().setZone(TIMEZONE).toFormat("T"));
+      setTime(DateTime.now().setZone(TIMEZONE).toFormat("t", { locale: "en-AU" }));
     }, 1000);
 
     return () => clearInterval(interval);

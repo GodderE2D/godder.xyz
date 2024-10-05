@@ -10,7 +10,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     name: "Reindeer",
-    description: "A reports/moderation/security Discord bot used in over 200 servers and protecting 100k+ users",
+    description: "A reports/moderation/security Discord bot used in over 400 servers and protecting 400k+ users",
     url: "https://github.com/GodderE2D/Reindeer",
   },
   {
@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Tristan SMP",
-    description: "Website for Tristan SMP with applications and a marketplace",
+    description: "Website for Tristan SMP with member applications and marketplaces",
     url: "https://github.com/TristanSMP/gateway",
   },
   {
@@ -48,11 +48,11 @@ export default function Projects() {
       </h2>
       <div className="prose prose-invert text-inherit">
         <p>
-          While I&apos;m not{" "}
+          Whilst I&apos;m not{" "}
           <a href="http://github.com/tristancamejo" target="_blank" rel="noopener noreferrer">
             Tristan
           </a>{" "}
-          with countless side projects (and domain names), I do have some work to be featured here.
+          with countless side projects (and domain names), I still have some work to be featured here.
         </p>
         <div className="not-prose grid grid-cols-1 gap-2 shadow md:auto-rows-fr md:grid-cols-2 md:gap-4">
           {PROJECTS.map((project) => (
@@ -71,11 +71,11 @@ export default function Projects() {
           ))}
         </div>
         <p>
-          I also have lots of more open-source work and contributions over on my{" "}
+          I (usually) 🩷 open-source—check out my{" "}
           <a href="http://github.com/GodderE2D" target="_blank" rel="noopener noreferrer">
             GitHub
-          </a>
-          .
+          </a>{" "}
+          if you want.
         </p>
       </div>
     </div>
