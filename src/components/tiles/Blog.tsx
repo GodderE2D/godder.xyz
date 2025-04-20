@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { DateTime } from "luxon";
 import { getPosts } from "../../app/blog/get-posts";
 import { Link } from "next-view-transitions";
 import { HiArrowUpRight } from "react-icons/hi2";

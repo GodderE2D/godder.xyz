@@ -10,7 +10,8 @@ export async function generateStaticParams() {
   return tags.map((tag) => ({ tag }));
 }
 
-export default async function Tag({ params }: { params: { tag: string } }) {
+export default async function Tag(props: { params: Promise<{ tag: string }> }) {
+  const params = await props.params;
   const posts = (await getPosts()).filter((post) => post.meta.tags.includes(params.tag));
   if (!posts) throw new Error(`No posts found with ${params.tag} tag`);
 

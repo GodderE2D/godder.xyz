@@ -1,7 +1,9 @@
-import { SiGithub, SiInstagram, SiReddit, SiSpotify, SiSteam, SiTwitch, SiYoutube } from "react-icons/si";
+import { SiGithub, SiReddit, SiSpotify, SiSteam, SiTwitch, SiYoutube } from "react-icons/si";
 import { FaTwitter } from "react-icons/fa6";
+import Image from "next/image";
 import DiscordSocial from "../DiscordSocial";
 import Social from "../Social";
+import ctftimeLogo from "../../../public/ctftime-logo.png";
 
 export default function Socials() {
   return (
@@ -14,7 +16,6 @@ export default function Socials() {
         <DiscordSocial />
         <Social name="Twitter" link="https://twitter.com/TheE2D" icon={<FaTwitter className="h-5 w-5" />} />
         <Social name="GitHub" link="https://github.com/GodderE2D" icon={<SiGithub className="h-5 w-5" />} />
-        <Social name="Instagram" link="https://instagram.com/thee2d" icon={<SiInstagram className="h-5 w-5" />} />
         <Social name="Reddit" link="https://reddit.com/u/_-GODDERE2D-_" icon={<SiReddit className="h-5 w-5" />} />
         <Social name="YouTube" link="https://youtube.com/@TheE2D" icon={<SiYoutube className="h-5 w-5" />} />
         <Social name="Twitch" link="https://twitch.tv/azugodder" icon={<SiTwitch className="h-5 w-5" />} />
@@ -23,6 +24,11 @@ export default function Socials() {
           name="Spotify"
           link="https://open.spotify.com/user/8hkx6ip5bkeqbhw0xlb0a9gdp"
           icon={<SiSpotify className="h-5 w-5" />}
+        />
+        <Social
+          name="CTFtime"
+          link="https://ctftime.org/user/219941"
+          icon={<Image src={ctftimeLogo} alt="CTFtime logo" className="h-5 w-5" />}
         />
       </div>
     </div>

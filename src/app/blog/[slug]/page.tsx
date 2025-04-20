@@ -17,7 +17,8 @@ export async function generateStaticParams() {
   });
 }
 
-export default async function BlogPage({ params }: { params: { slug: string } }) {
+export default async function BlogPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const post = (await getPosts()).find((post) => post.meta.slug === params.slug);
   if (!post) throw new Error("Post not found");
 

@@ -9,24 +9,24 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    name: "CyberStudents",
+    description: "A cybersecurity education organisation and community for students",
+    url: "https://cyberstudents.net/",
+  },
+  {
     name: "Reindeer",
-    description: "A reports/moderation/security Discord bot used in over 400 servers and protecting 400k+ users",
+    description: "A reports/moderation/security Discord bot used in 500+ servers and protecting 1 million users",
     url: "https://github.com/GodderE2D/Reindeer",
-  },
-  {
-    name: "Fortalice SMP",
-    description: "A Minecraft server with custom plugins and membership system",
-    url: "https://discord.gg/R2FDvcPXTK",
-  },
-  {
-    name: "Blue Shark River",
-    description: "An alliance for growing developer and gaming-oriented projects",
-    url: "https://discord.gg/R2FDvcPXTK",
   },
   {
     name: "CyberStudents CTF",
     description: "A Discord bot to manage CTF challenges in the CyberStudents server",
     url: "https://github.com/cyberstudentsacademy/cyberstudents-ctf",
+  },
+  {
+    name: "Blue Shark River",
+    description: "An alliance for growing developer and gaming-oriented projects",
+    url: "https://discord.gg/R2FDvcPXTK",
   },
   {
     name: "Tristan SMP",
@@ -71,7 +71,7 @@ export default function Projects() {
           ))}
         </div>
         <p>
-          I (usually) 🩷 open-source—check out my{" "}
+          I (usually) 🩷 open-source; check out my{" "}
           <a href="http://github.com/GodderE2D" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>{" "}

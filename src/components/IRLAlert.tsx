@@ -19,7 +19,7 @@ export default function IRLAlert() {
     <>
       <div className="fixed inset-x-0 left-0 right-0 top-0 mx-auto">
         <div className="flex items-center justify-center gap-2 bg-amber-600 bg-opacity-90 px-4 py-2 text-sm text-zinc-300">
-          <span className="text-left">If you know me in-person, no you don&apos;t 🫡</span>
+          <span className="text-left">Please be considerate of my online privacy if you know me in-person 😇</span>
           <span
             onClick={() => setOpenModal(true)}
             className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full hover:bg-amber-700"

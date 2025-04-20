@@ -1,5 +1,5 @@
-import { DiRuby } from "react-icons/di";
 import { FaJava } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
 import {
   SiTypescript,
   SiDiscord,
@@ -11,6 +11,9 @@ import {
   SiJavascript,
   SiYarn,
   SiGit,
+  SiPrisma,
+  SiPython,
+  SiTensorflow,
 } from "react-icons/si";
 import Tooltip from "../Tooltip";
 
@@ -20,38 +23,38 @@ function Icons({ size }: { size: number }) {
       <Tooltip content="TypeScript">
         <SiTypescript title="TypeScript" size={size} />
       </Tooltip>
-      <Tooltip content="Discord">
-        <SiDiscord title="Discord" size={size} />
+      <Tooltip content="JavaScript">
+        <SiJavascript title="JavaScript" size={size} />
+      </Tooltip>
+      <Tooltip content="Node.js">
+        <SiNodedotjs title="Node.js" size={size} />
+      </Tooltip>
+      <Tooltip content="Tailwind CSS">
+        <SiTailwindcss title="Tailwind CSS" size={size} />
+      </Tooltip>
+      <Tooltip content="React">
+        <SiReact title="React" size={size} />
       </Tooltip>
       <Tooltip content="Next.js">
         <SiNextdotjs title="Next.js" size={size} />
       </Tooltip>
       <Tooltip content="PostgreSQL">
-        <SiPostgresql title="PostgreSQL" size={size} />
+        <BiLogoPostgresql title="PostgreSQL" size={size} />
       </Tooltip>
-      <Tooltip content="React">
-        <SiReact title="React" size={size} />
+      <Tooltip content="Prisma">
+        <SiPrisma title="Prisma" size={size} />
       </Tooltip>
-      <Tooltip content="Tailwind CSS">
-        <SiTailwindcss title="Tailwind CSS" size={size} />
-      </Tooltip>
-      <Tooltip content="Node.js">
-        <SiNodedotjs title="Node.js" size={size} />
-      </Tooltip>
-      <Tooltip content="JavaScript">
-        <SiJavascript title="JavaScript" size={size} />
-      </Tooltip>
-      <Tooltip content="Yarn">
-        <SiYarn title="Yarn" size={size} />
+      <Tooltip content="Discord API">
+        <SiDiscord title="Discord" size={size} />
       </Tooltip>
       <Tooltip content="Java">
         <FaJava title="Java" size={size} />
       </Tooltip>
-      <Tooltip content="Ruby">
-        <DiRuby title="Ruby" size={size} />
+      <Tooltip content="Python">
+        <SiPython title="Python" size={size} />
       </Tooltip>
-      <Tooltip content="Git">
-        <SiGit title="Git" size={size} />
+      <Tooltip content="TensorFlow">
+        <SiTensorflow title="TensorFlow" size={size} />
       </Tooltip>
     </>
   );
